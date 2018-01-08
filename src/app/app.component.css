@@ -1,0 +1,6 @@
+.main {
+    margin-left: 170px; /* Same as the width of the sidebar */
+    margin-top: 80px;
+    width: 100%;
+    padding: 10px 10px;
+}

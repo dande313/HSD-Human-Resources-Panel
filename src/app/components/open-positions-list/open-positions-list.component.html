@@ -1,3 +1,20 @@
-<p>
-  open-positions-list works!
-</p>
+<div class="main">
+  <table *ngIf="positions?.length > 0; else noClients"class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let position of positions">
+        <td>{{position.title}}</td>
+        <td>{{position.department}}</td>
+        <td>{{position.salary}}<span *ngIf="position.salaryType === 'Hourly' "> per hour</span><span *ngIf="position.salaryType === 'Salaried' "> annual</span></td>
+        <td><a [routerLink]= "['/position/' + position.key]" > Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
