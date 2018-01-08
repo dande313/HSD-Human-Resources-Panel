@@ -6,7 +6,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
-
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -18,14 +17,15 @@ import { EditPositionComponent } from './components/edit-position/edit-position.
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+
 import { ApplicantListComponent } from './components/applicant-list/applicant-list.component';
 import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
-
-import { PositionService } from './services/position.service';
-import { ApplicantsListComponent } from './components/applicants-list/applicants-list.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { AddApplicantComponent } from './components/add-applicant/add-applicant.component';
-import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component'
+import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component';
+
+import { PositionService } from './services/position.service';
+import { ApplicantService} from './services/applicant.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   {path: 'positions/:id', component: OpenPositionsComponent},
   {path: 'positions/new', component: AddPositionComponent},
   {path: 'positions/:id/edit', component: EditPositionComponent},
-  {path: 'applicants', component: ApplicantsListComponent},
+  {path: 'applicants', component: ApplicantListComponent},
   {path: 'applicants/:id', component: ApplicantsComponent},
   {path: 'applicants/new', component: AddApplicantComponent},
   {path: 'applicants/:id/edit', component: EditApplicantComponent},
@@ -53,7 +53,6 @@ const appRoutes: Routes = [
     SideBarComponent,
     ApplicantListComponent,
     ApplicantDetailsComponent,
-    ApplicantsListComponent,
     ApplicantsComponent,
     AddApplicantComponent,
     EditApplicantComponent
@@ -68,7 +67,8 @@ const appRoutes: Routes = [
   providers: [
     AngularFireDatabase,
     AngularFireDatabaseModule,
-    PositionService
+    PositionService,
+    ApplicantService
   ],
   bootstrap: [AppComponent]
 })

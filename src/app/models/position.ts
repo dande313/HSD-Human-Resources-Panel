@@ -4,5 +4,5 @@ export interface Position {
     department?: string;
     description?: string;
     salary?: number;
-    salaryType: string;
+    salaryType?: string;
 }

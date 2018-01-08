@@ -4,7 +4,7 @@
       <tr>
         <th>Title</th>
         <th>Department</th>
-        <th>Salary</th>
+        <th colspan="2">Salary</th>
         <th></th>
       </tr>
     </thead>
@@ -12,7 +12,8 @@
       <tr *ngFor="let position of positions">
         <td>{{position.title}}</td>
         <td>{{position.department}}</td>
-        <td>{{position.salary}}<span *ngIf="position.salaryType === 'Hourly' "> per hour</span><span *ngIf="position.salaryType === 'Salaried' "> annual</span></td>
+        <td>{{position.salary}}</td>
+        <td><span *ngIf="position.salaryType === 'Hourly' "> per hour</span><span *ngIf="position.salaryType === 'Salaried' "> per year</span></td>
         <td><a [routerLink]= "['/position/' + position.key]" > Details</a></td>
       </tr>
     </tbody>

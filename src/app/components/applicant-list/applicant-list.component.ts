@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicantService } from '../../services/applicant.service';
+import { Applicant } from '../../models/applicant';
 
 @Component({
   selector: 'app-applicant-list',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./applicant-list.component.css']
 })
 export class ApplicantListComponent implements OnInit {
+  applicants: any[];
 
-  constructor() { }
+  constructor(private applicantService: ApplicantService) { }
 
   ngOnInit() {
+    this.applicantService.getApplicants().subscribe(applicants => {
+      console.log(applicants);
+      console.log('Applicant data should appear');
+      this.applicants = applicants;
+    });
   }
 
 }
