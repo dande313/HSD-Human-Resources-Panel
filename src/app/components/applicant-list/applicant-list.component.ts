@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApplicantService } from '../../services/applicant.service';
 import { Applicant } from '../../models/applicant';
 
+
 @Component({
   selector: 'app-applicant-list',
   templateUrl: './applicant-list.component.html',
@@ -15,7 +16,6 @@ export class ApplicantListComponent implements OnInit {
   ngOnInit() {
     this.applicantService.getApplicants().subscribe(applicants => {
       console.log(applicants);
-      console.log('Applicant data should appear');
       this.applicants = applicants;
     });
   }

@@ -1,3 +1,25 @@
-<p>
-  applicant-list works!
-</p>
+<mat-card>
+  <table *ngIf="applicants?.length > 0; else noClients"class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let applicant of applicants">
+        <td>{{applicant.firstName}} {{applicant.lastName}}</td>
+        <td>{{applicant.phone}}</td>
+        <td>{{applicant.email}}</td>
+        <td><a [routerLink]= "['/applicant/' + applicant.key]" > Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
+
+
+
+
+

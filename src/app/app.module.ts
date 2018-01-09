@@ -8,24 +8,34 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 
+// layout components, etc
 import { AppComponent } from './app.component';
-import { OpenPositionsListComponent } from './components/open-positions-list/open-positions-list.component';
-import { OpenPositionsComponent } from './components/open-positions/open-positions.component';
 import { HomeComponent } from './components/home/home.component';
-import { AddPositionComponent } from './components/add-position/add-position.component';
-import { EditPositionComponent } from './components/edit-position/edit-position.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 
+
+// Positions Components
+import { OpenPositionsListComponent } from './components/open-positions-list/open-positions-list.component';
+import { OpenPositionsComponent } from './components/open-positions/open-positions.component';
+import { AddPositionComponent } from './components/add-position/add-position.component';
+import { EditPositionComponent } from './components/edit-position/edit-position.component';
+
+// Applicant Components
 import { ApplicantListComponent } from './components/applicant-list/applicant-list.component';
 import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
 import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { AddApplicantComponent } from './components/add-applicant/add-applicant.component';
 import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component';
 
+// Services
 import { PositionService } from './services/position.service';
 import { ApplicantService} from './services/applicant.service';
+
+// Materials
+
+import { MaterialModule } from '../material.module';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -57,12 +67,15 @@ const appRoutes: Routes = [
     AddApplicantComponent,
     EditApplicantComponent
   ],
+  exports: [
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase, 'hsd-hr-panel'),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MaterialModule
   ],
   providers: [
     AngularFireDatabase,
