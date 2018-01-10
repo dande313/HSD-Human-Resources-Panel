@@ -1,4 +1,4 @@
-.navbar {
+.hr-navbar {
     background-color: #B56357;
     color: #ececec;
     Width: 100%;
@@ -7,6 +7,10 @@
     left: 0;
     padding: 10px;
     margin: auto;
+    z-index: 1;
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
+    box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
 }
 
 #logo {

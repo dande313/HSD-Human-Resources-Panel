@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicantService } from '../../services/applicant.service';
 import { Applicant } from '../../models/applicant';
+import {MatTableDataSource, MatSort} from '@angular/material';
 
 
 @Component({
@@ -9,14 +10,15 @@ import { Applicant } from '../../models/applicant';
   styleUrls: ['./applicant-list.component.css']
 })
 export class ApplicantListComponent implements OnInit {
-  applicants: any[];
+  dataSource: any;
+  displayedColumns = ['name', 'email', 'phone', 'details'];
 
   constructor(private applicantService: ApplicantService) { }
 
   ngOnInit() {
     this.applicantService.getApplicants().subscribe(applicants => {
       console.log(applicants);
-      this.applicants = applicants;
+      this.dataSource = new MatTableDataSource<Applicant>(applicants);
     });
   }
 

@@ -1,21 +1,24 @@
-<div class="main">
-  <table *ngIf="positions?.length > 0; else noClients"class="table table-striped">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Department</th>
-        <th colspan="2">Salary</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let position of positions">
-        <td>{{position.title}}</td>
-        <td>{{position.department}}</td>
-        <td>{{position.salary}}</td>
-        <td><span *ngIf="position.salaryType === 'Hourly' "> per hour</span><span *ngIf="position.salaryType === 'Salaried' "> per year</span></td>
-        <td><a [routerLink]= "['/position/' + position.key]" > Details</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<mat-card>
+  <div>
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+        <mat-cell *matCellDef="let position"> {{position.title}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="department">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Department </mat-header-cell>
+        <mat-cell *matCellDef="let position"> {{position.department}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="salary">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+        <mat-cell *matCellDef="let position"> {{position.salary}} <span *ngIf="position.salaryType === 'Hourly' "> per hour</span><span *ngIf="position.salaryType === 'Salaried' "> annually</span></mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let position"><a [routerLink]= "['/position/' + position.key]" class="btn btn-info"> Details</a></mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</mat-card>

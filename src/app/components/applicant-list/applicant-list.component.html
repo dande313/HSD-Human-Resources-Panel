@@ -1,25 +1,27 @@
 <mat-card>
-  <table *ngIf="applicants?.length > 0; else noClients"class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let applicant of applicants">
-        <td>{{applicant.firstName}} {{applicant.lastName}}</td>
-        <td>{{applicant.phone}}</td>
-        <td>{{applicant.email}}</td>
-        <td><a [routerLink]= "['/applicant/' + applicant.key]" > Details</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let applicant"> {{applicant.firstName}} {{applicant.lastName}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> E-Mail </mat-header-cell>
+        <mat-cell *matCellDef="let applicant"> {{applicant.email}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let applicant"> {{applicant.phone}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let applicant"><a [routerLink]= "['/applicant/' + applicant.key]" class="btn btn-info"> Details</a></mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
 </mat-card>
-
-
 
 
 
