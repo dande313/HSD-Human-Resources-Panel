@@ -1,3 +1,242 @@
-<p>
-  add-applicant works!
-</p>
+<h4>Add applicant form</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <a routerLink="/" href="#" class="btn btn-link">
+        <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
+        </a>
+    </div>
+    <div class="col-md-6"></div>
+</div>
+
+<mat-card div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="20">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <!-- First Name field -->
+      <div class="form-group">
+        <label for="firstName">First Name*</label>
+        <input 
+        type="text"
+        class="form-control"
+        [ngClass]="{'is-invalid': applicantFirstName.errors?.required && applicantFirstName.touched || applicantFirstName.errors?.minlength && applicantFirstName.touched}"
+        [(ngModel)]="applicant.firstName"
+        name="firstName"
+        #applicantFirstName = "ngModel"
+        minlength="2"
+        required
+        >
+        <div *ngIf="applicantFirstName.touched && applicantFirstName.hasError('required')" class="invalid-feedback">
+          First Name is required
+        </div>
+        <div *ngIf="applicantFirstName.touched && applicantFirstName.hasError('minlength')" class="invalid-feedback">
+          First Name is too short
+        </div>
+      </div>
+
+    <!-- Last Name field -->
+      <div class="form-group">
+        <label for="lastName">Last Name*</label>
+        <input 
+        type="text"
+        class="form-control"
+        [ngClass]="{'is-invalid': applicantLastName.errors?.required && applicantLastName.touched || applicantLastName.errors?.minlength && applicantLastName.touched}"
+        [(ngModel)]="applicant.lastName"
+        name="lastName"
+        #applicantLastName = "ngModel"
+        minlength="2"
+        required
+        >
+        <div *ngIf="applicantLastName.touched && applicantLastName.hasError('required')" class="invalid-feedback">
+          Last Name is required
+        </div>
+        <div *ngIf="applicantLastName.touched && applicantLastName.hasError('minlength')" class="invalid-feedback">
+          Last Name is too short
+        </div>
+      </div>
+
+      <hr>
+      <h3>Contact Info:</h3>
+
+      <!-- Email field -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+          type="email"
+          class="form-control"
+          [ngClass]="{'is-invalid': applicantEmail.errors?.required && applicantEmail.touched || applicantEmail.errors?.pattern && applicantEmail.touched}"
+          [(ngModel)]="applicant.email"
+          name="email"
+          #applicantEmail = "ngModel"
+          required
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          >
+          <div *ngIf="applicantEmail.hasError('required') && applicantEmail.touched" class="invalid-feedback">
+            Email is required
+          </div>
+          <div *ngIf="applicantEmail.hasError('pattern') && applicantEmail.touched" class="invalid-feedback">
+            Email is invalid
+          </div>
+        </div>
+  
+      <!-- Phone field -->
+        <div class="form-group">
+            <label for="phone">Phone (ex. 123-456-7890)</label>
+            <input 
+            type="text"
+            class="form-control"
+            [ngClass]="{'is-invalid': applicantPhone.errors?.required && applicantPhone.touched || applicantPhone.errors?.pattern && applicantPhone.touched}"
+            [(ngModel)]="applicant.phone"
+            name="phone"
+            #applicantPhone = "ngModel"
+            required
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            >
+            <div *ngIf="applicantPhone.hasError('required') && applicantPhone.touched" class="invalid-feedback">
+              Phone is required
+            </div>
+            <div *ngIf="applicantPhone.hasError('pattern') && applicantPhone.touched" class="invalid-feedback">
+              Phone is not a valid number
+            </div>
+          </div>
+
+      <hr>
+      <h3>Address Details:</h3>
+
+      <!-- Address Line One -->
+        <div class="form-group">
+          <label for="addressLineOne">Line 1*</label><br>
+          <input 
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': applicantAddressLineOne.errors?.required && applicantAddressLineOne.touched}"
+          [(ngModel)]="applicant.addressLineOne"
+          name="addressLineOne"
+          #applicantAddressLineOne = "ngModel"
+          required
+          >
+          <div *ngIf="applicantAddressLineOne.touched && applicantAddressLineOne.hasError('required')" class="invalid-feedback">
+            Street Address is required
+          </div>
+        </div>
+
+      <!-- Address Line Two -->
+        <div class="form-group">
+          <label for="addressLineTwo">Line 2</label><br>
+          <input 
+          type="text"
+          class="form-control"
+          [(ngModel)]="applicant.addressLineTwo"
+          name="addressLineTwo"
+          #applicantAddressLineTwo = "ngModel"
+          >
+        </div>
+
+      <!-- City -->
+      <div class="form-group">
+        <label for="city">City*</label><br>
+        <input 
+        type="text"
+        class="form-control"
+        [ngClass]="{'is-invalid': applicantCity.errors?.required && applicantCity.touched}"
+        [(ngModel)]="applicant.city"
+        name="city"
+        #applicantCity = "ngModel"
+        required
+        >
+        <div *ngIf="applicantCity.touched && applicantCity.hasError('required')" class="invalid-feedback">
+          City is required
+        </div>
+      </div>
+
+      <!-- State -->
+        <div class="form-group">
+          <label for="state">State*</label><br>
+          <select 
+          class="form-control"
+          [ngClass]="{'is-invalid': applicantState.errors?.required && applicantState.touched}"
+          [(ngModel)]="applicant.state"
+          name="state"
+          #applicantState = "ngModel"
+          required
+          >
+          <option value="AL">Alabama (AL)</option>
+          <option value="AK">Alaska (AK)</option>
+          <option value="AZ">Arizona (AZ)</option>
+          <option value="AR">Arkansas (AR)</option>
+          <option value="CA">California (CA)</option>
+          <option value="CO">Colorado (CO)</option>
+          <option value="CT">Connecticut (CT)</option>
+          <option value="DE">Delaware (DE)</option>
+          <option value="DC">District Of Columbia (DC)</option>
+          <option value="FL">Florida (FL)</option>
+          <option value="GA">Georgia (GA)</option>
+          <option value="HI">Hawaii (HI)</option>
+          <option value="ID">Idaho (ID)</option>
+          <option value="IL">Illinois (IL)</option>
+          <option value="IN">Indiana (IN)</option>
+          <option value="IA">Iowa (IA)</option>
+          <option value="KS">Kansas (KS)</option>
+          <option value="KY">Kentucky (KY)</option>
+          <option value="LA">Louisiana (LA)</option>
+          <option value="ME">Maine (ME)</option>
+          <option value="MD">Maryland (MD)</option>
+          <option value="MA">Massachusetts (MA)</option>
+          <option value="MI">Michigan (MI)</option>
+          <option value="MN">Minnesota (MN)</option>
+          <option value="MS">Mississippi (MS)</option>
+          <option value="MO">Missouri (MO)</option>
+          <option value="MT">Montana (MT)</option>
+          <option value="NE">Nebraska (NE)</option>
+          <option value="NV">Nevada (NV)</option>
+          <option value="NH">New Hampshire (NH)</option>
+          <option value="NJ">New Jersey (NJ)</option>
+          <option value="NM">New Mexico (NM)</option>
+          <option value="NY">New York (NY)</option>
+          <option value="NC">North Carolina (NC)</option>
+          <option value="ND">North Dakota (ND)</option>
+          <option value="OH">Ohio (OH)</option>
+          <option value="OK">Oklahoma (OK)</option>
+          <option value="OR">Oregon (OR)</option>
+          <option value="PA">Pennsylvania (PA)</option>
+          <option value="RI">Rhode Island (RI)</option>
+          <option value="SC">South Carolina (SC)</option>
+          <option value="SD">South Dakota (SD)</option>
+          <option value="TN">Tennessee (TN)</option>
+          <option value="TX">Texas (TX)</option>
+          <option value="UT">Utah (UT)</option>
+          <option value="VT">Vermont (VT)</option>
+          <option value="VA">Virginia (VA)</option>
+          <option value="WA">Washington (WA)</option>
+          <option value="WV">West Virginia (WV)</option>
+          <option value="WI">Wisconsin (WI)</option>
+          <option value="WY">Wyoming (WY)</option>
+          </select>
+          <div *ngIf="applicantState.touched && applicantState.hasError('required')" class="invalid-feedback">
+            Must select a State
+          </div>
+        </div>
+
+      <!-- Zip Code -->
+      <div class="form-group">
+        <label for="zipCode">Zip Code</label><br>
+        <input 
+        type="text"
+        class="form-control"
+        [ngClass]="{'is-invalid': applicantZipCode.errors?.required && applicantZipCode.touched}"
+        [(ngModel)]="applicant.zipCode"
+        name="zipCode"
+        #applicantZipCode = "ngModel"
+        pattern="^\d{5}(?:[-]\d{4})?$"
+        >
+        <div *ngIf="applicantZipCode.touched && applicantZipCode.hasError('pattern')" class="invalid-feedback">
+          Zip code must be in correct format (xxxxx or xxxxx-xxxx)
+        </div>
+      </div>
+
+
+
+        <input type="submit" value="Submit">
+    </form>
+</mat-card>
+<div fxFlex="60" background-color:"red">
+ hello!

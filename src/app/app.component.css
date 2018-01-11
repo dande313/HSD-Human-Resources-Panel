@@ -1,6 +1,13 @@
 .main {
-    margin-left: 12%; /* Same as the width of the sidebar */
+    margin-left: 170px; /* Same as the width of the sidebar */
     margin-top: 80px;
-    width: 70%;
+    width: 100% - 170px;
     padding: 10px 10px;
+}
+
+@media screen and (max-width: 750px) {
+    .main {
+        margin-left: 0;
+        padding-top: 10px;
+    }
 }

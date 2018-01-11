@@ -1,3 +1,13 @@
-<p>
-  applicant-details works!
-</p>
+<mat-card *ngIf="applicant">
+  <h3>{{applicant.firstName}} {{applicant.lastName}}</h3>
+  <div class="contact-info">
+    <div>{{applicant.email}} | {{applicant.phone}}<br><br>
+    {{applicant.addressLineOne}} </div> 
+    <div ng-if="applicant.addressLineTwo">{{applicant.addressLineTwo}}</div> 
+    <div>{{applicant.city}}, {{applicant.state}} {{applicant.zipCode}}</div>
+  </div>
+  <hr>
+  <h5>Experience: {{applicant.monthsExp / 12 | number:'1.0-0'}} years, {{applicant.monthsExp % 12}} months</h5><br>
+  <h4>Notes:</h4>
+  <p>{{applicant.notes}}</p>
+</mat-card>

@@ -3,19 +3,19 @@
     <mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-        <mat-cell *matCellDef="let position"> {{position.title}}</mat-cell>
+        <mat-cell *matCellDef="let position">{{position.title}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="department">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Department </mat-header-cell>
-        <mat-cell *matCellDef="let position"> {{position.department}} </mat-cell>
+        <mat-cell *matCellDef="let position">{{position.department}}</mat-cell>
       </ng-container>
-      <ng-container matColumnDef="salary">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
-        <mat-cell *matCellDef="let position"> {{position.salary}} <span *ngIf="position.salaryType === 'Hourly' "> per hour</span><span *ngIf="position.salaryType === 'Salaried' "> annually</span></mat-cell>
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+        <mat-cell *matCellDef="let position">{{position.city}}, {{position.state}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-        <mat-cell *matCellDef="let position"><a [routerLink]= "['/position/' + position.key]" class="btn btn-info"> Details</a></mat-cell>
+        <mat-cell *matCellDef="let position"><a [routerLink]= "['/positions/' + position.key]" class="btn btn-info"> Details</a></mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

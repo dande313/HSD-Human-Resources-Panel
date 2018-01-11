@@ -3,6 +3,14 @@ export interface Applicant {
     firstName?: string;
     lastName?: string;
     email?: string;
-    phone: string;
-    industryExp?: number;
+    phone?: string;
+    monthsExp?: number;
+    addressLineOne?: string;
+    addressLineTwo?: string;
+    city?: string;
+    state?: string;
+    zipCode?: number;
+    gender?: string;
+    registrationDate?: string;
+    notes: string;
 }

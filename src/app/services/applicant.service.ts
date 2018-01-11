@@ -23,4 +23,15 @@ export class ApplicantService {
      return this.applicants;
    }
 
+   getApplicant(id: string) {
+    this.applicant = this.db.object('/applicants/' + id).valueChanges();
+    return this.applicant;
+  }
+
+  newApplicant(applicant: Applicant) {
+    this.applicantsRef.push(applicant);
+  }
+
+
+
 }

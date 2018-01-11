@@ -15,7 +15,7 @@
       </ng-container>
       <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-        <mat-cell *matCellDef="let applicant"><a [routerLink]= "['/applicant/' + applicant.key]" class="btn btn-info"> Details</a></mat-cell>
+        <mat-cell *matCellDef="let applicant"><a [routerLink]= "['/applicants/' + applicant.key]" class="btn btn-info"> Details</a></mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

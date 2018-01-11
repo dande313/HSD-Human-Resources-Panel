@@ -7,6 +7,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // layout components, etc
 import { AppComponent } from './app.component';
@@ -25,7 +26,6 @@ import { EditPositionComponent } from './components/edit-position/edit-position.
 // Applicant Components
 import { ApplicantListComponent } from './components/applicant-list/applicant-list.component';
 import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
-import { ApplicantsComponent } from './components/applicants/applicants.component';
 import { AddApplicantComponent } from './components/add-applicant/add-applicant.component';
 import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component';
 
@@ -40,12 +40,12 @@ import { MaterialModule } from '../material.module';
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'positions', component: OpenPositionsListComponent},
-  {path: 'positions/:id', component: OpenPositionsComponent},
   {path: 'positions/new', component: AddPositionComponent},
+  {path: 'positions/:id', component: OpenPositionsComponent},
   {path: 'positions/:id/edit', component: EditPositionComponent},
   {path: 'applicants', component: ApplicantListComponent},
-  {path: 'applicants/:id', component: ApplicantsComponent},
   {path: 'applicants/new', component: AddApplicantComponent},
+  {path: 'applicants/:id', component: ApplicantDetailsComponent},
   {path: 'applicants/:id/edit', component: EditApplicantComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
@@ -63,7 +63,6 @@ const appRoutes: Routes = [
     SideBarComponent,
     ApplicantListComponent,
     ApplicantDetailsComponent,
-    ApplicantsComponent,
     AddApplicantComponent,
     EditApplicantComponent
   ],
@@ -75,7 +74,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase, 'hsd-hr-panel'),
     AngularFireAuthModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    FlexLayoutModule
   ],
   providers: [
     AngularFireDatabase,

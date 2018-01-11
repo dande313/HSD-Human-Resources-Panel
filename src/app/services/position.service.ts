@@ -23,4 +23,9 @@ export class PositionService {
      return this.positions;
    }
 
+   getPosition(id: string) {
+    this.position = this.db.object('/positions/' + id).valueChanges();
+    return this.position;
+  }
+
 }

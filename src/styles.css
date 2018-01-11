@@ -5,3 +5,10 @@
 .mat-card {
     width:75%;
 }
+
+@media screen and (max-width: 750px) {
+    .mat-card {
+        width:100%;
+    }
+    
+}

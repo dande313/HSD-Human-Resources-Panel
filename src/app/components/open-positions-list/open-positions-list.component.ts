@@ -10,7 +10,7 @@ import {MatTableDataSource, MatSort} from '@angular/material';
 })
 export class OpenPositionsListComponent implements OnInit {
   dataSource: any;
-  displayedColumns = ['title', 'department', 'salary', 'details'];
+  displayedColumns = ['title', 'department', 'location', 'details'];
 
   constructor(private positionService: PositionService) { }
 

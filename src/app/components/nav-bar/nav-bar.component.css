@@ -2,6 +2,7 @@
     background-color: #B56357;
     color: #ececec;
     Width: 100%;
+    Height: 80px;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,8 +16,19 @@
 
 #logo {
     display: inline-block;
+    height: 60px;
 }
 
-.header {
-    text-align: center;
+.tiny-header {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .big-header {
+        display: none;
+    }
+    .tiny-header {
+        display: show;
+    }
+    
 }
