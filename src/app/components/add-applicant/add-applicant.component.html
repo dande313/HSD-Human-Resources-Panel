@@ -1,103 +1,104 @@
-<h4>Add applicant form</h4>
+<mat-card class="form-card container" fxLayout="column">
 
-<div class="row">
-    <div class="col-md-6">
-        <a routerLink="/" href="#" class="btn btn-link">
-        <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
-        </a>
+    <div class="container" fxLayout="row">
+      <a routerLink="/" href="#" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
+      </a>
     </div>
-    <div class="col-md-6"></div>
-</div>
-
-<mat-card div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="20">
-    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
-
-    <!-- First Name field -->
-      <div class="form-group">
-        <label for="firstName">First Name*</label>
-        <input 
-        type="text"
-        class="form-control"
-        [ngClass]="{'is-invalid': applicantFirstName.errors?.required && applicantFirstName.touched || applicantFirstName.errors?.minlength && applicantFirstName.touched}"
-        [(ngModel)]="applicant.firstName"
-        name="firstName"
-        #applicantFirstName = "ngModel"
-        minlength="2"
-        required
-        >
-        <div *ngIf="applicantFirstName.touched && applicantFirstName.hasError('required')" class="invalid-feedback">
-          First Name is required
-        </div>
-        <div *ngIf="applicantFirstName.touched && applicantFirstName.hasError('minlength')" class="invalid-feedback">
-          First Name is too short
-        </div>
-      </div>
-
-    <!-- Last Name field -->
-      <div class="form-group">
-        <label for="lastName">Last Name*</label>
-        <input 
-        type="text"
-        class="form-control"
-        [ngClass]="{'is-invalid': applicantLastName.errors?.required && applicantLastName.touched || applicantLastName.errors?.minlength && applicantLastName.touched}"
-        [(ngModel)]="applicant.lastName"
-        name="lastName"
-        #applicantLastName = "ngModel"
-        minlength="2"
-        required
-        >
-        <div *ngIf="applicantLastName.touched && applicantLastName.hasError('required')" class="invalid-feedback">
-          Last Name is required
-        </div>
-        <div *ngIf="applicantLastName.touched && applicantLastName.hasError('minlength')" class="invalid-feedback">
-          Last Name is too short
-        </div>
-      </div>
-
-      <hr>
-      <h3>Contact Info:</h3>
-
-      <!-- Email field -->
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input 
-          type="email"
-          class="form-control"
-          [ngClass]="{'is-invalid': applicantEmail.errors?.required && applicantEmail.touched || applicantEmail.errors?.pattern && applicantEmail.touched}"
-          [(ngModel)]="applicant.email"
-          name="email"
-          #applicantEmail = "ngModel"
-          required
-          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-          >
-          <div *ngIf="applicantEmail.hasError('required') && applicantEmail.touched" class="invalid-feedback">
-            Email is required
-          </div>
-          <div *ngIf="applicantEmail.hasError('pattern') && applicantEmail.touched" class="invalid-feedback">
-            Email is invalid
-          </div>
-        </div>
-  
-      <!-- Phone field -->
-        <div class="form-group">
-            <label for="phone">Phone (ex. 123-456-7890)</label>
+    <div class="container" fxLayout="row" fxLayoutAlign="center">
+        <h2>New Applicant</h2>
+    </div>
+    <br>
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column">
+    
+      <div class="container name-fields" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="left"  fxLayoutGap="10px">
+        <!-- First Name field -->
+          <div class="form-group" fxFlex="30">
+            <label for="firstName">First Name*</label>
             <input 
             type="text"
             class="form-control"
-            [ngClass]="{'is-invalid': applicantPhone.errors?.required && applicantPhone.touched || applicantPhone.errors?.pattern && applicantPhone.touched}"
-            [(ngModel)]="applicant.phone"
-            name="phone"
-            #applicantPhone = "ngModel"
+            [ngClass]="{'is-invalid': applicantFirstName.errors?.required && applicantFirstName.touched || applicantFirstName.errors?.minlength && applicantFirstName.touched}"
+            [(ngModel)]="applicant.firstName"
+            name="firstName"
+            #applicantFirstName = "ngModel"
+            minlength="2"
             required
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             >
-            <div *ngIf="applicantPhone.hasError('required') && applicantPhone.touched" class="invalid-feedback">
-              Phone is required
+            <div *ngIf="applicantFirstName.touched && applicantFirstName.hasError('required')" class="invalid-feedback">
+              First Name is required
             </div>
-            <div *ngIf="applicantPhone.hasError('pattern') && applicantPhone.touched" class="invalid-feedback">
-              Phone is not a valid number
+            <div *ngIf="applicantFirstName.touched && applicantFirstName.hasError('minlength')" class="invalid-feedback">
+              First Name is too short
             </div>
           </div>
+
+        <!-- Last Name field -->
+          <div class="form-group" fxFlex="30">
+            <label for="lastName">Last Name*</label>
+            <input 
+            type="text"
+            class="form-control"
+            [ngClass]="{'is-invalid': applicantLastName.errors?.required && applicantLastName.touched || applicantLastName.errors?.minlength && applicantLastName.touched}"
+            [(ngModel)]="applicant.lastName"
+            name="lastName"
+            #applicantLastName = "ngModel"
+            minlength="2"
+            required
+            >
+            <div *ngIf="applicantLastName.touched && applicantLastName.hasError('required')" class="invalid-feedback">
+              Last Name is required
+            </div>
+            <div *ngIf="applicantLastName.touched && applicantLastName.hasError('minlength')" class="invalid-feedback">
+              Last Name is too short
+            </div>
+          </div>
+        </div>
+
+      <div class="container contact-fields" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="left"  fxLayoutGap="10px">
+
+        <!-- Email field -->
+          <div class="form-group" fxFlex="25">
+            <label for="email">Email</label>
+            <input 
+            type="email"
+            class="form-control"
+            [ngClass]="{'is-invalid': applicantEmail.errors?.required && applicantEmail.touched || applicantEmail.errors?.pattern && applicantEmail.touched}"
+            [(ngModel)]="applicant.email"
+            name="email"
+            #applicantEmail = "ngModel"
+            required
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            >
+            <div *ngIf="applicantEmail.hasError('required') && applicantEmail.touched" class="invalid-feedback">
+              Email is required
+            </div>
+            <div *ngIf="applicantEmail.hasError('pattern') && applicantEmail.touched" class="invalid-feedback">
+              Email is invalid
+            </div>
+          </div>
+    
+        <!-- Phone field -->
+          <div class="form-group">
+              <label for="phone">Phone (ex. 123-456-7890)</label>
+              <input 
+              type="text"
+              class="form-control"
+              [ngClass]="{'is-invalid': applicantPhone.errors?.required && applicantPhone.touched || applicantPhone.errors?.pattern && applicantPhone.touched}"
+              [(ngModel)]="applicant.phone"
+              name="phone"
+              #applicantPhone = "ngModel"
+              required
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              >
+              <div *ngIf="applicantPhone.hasError('required') && applicantPhone.touched" class="invalid-feedback">
+                Phone is required
+              </div>
+              <div *ngIf="applicantPhone.hasError('pattern') && applicantPhone.touched" class="invalid-feedback">
+                Phone is not a valid number
+              </div>
+            </div>
+        </div>
 
       <hr>
       <h3>Address Details:</h3>
@@ -238,5 +239,3 @@
         <input type="submit" value="Submit">
     </form>
 </mat-card>
-<div fxFlex="60" background-color:"red">
- hello!
