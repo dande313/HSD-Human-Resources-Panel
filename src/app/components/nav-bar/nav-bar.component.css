@@ -2,7 +2,7 @@
     background-color: #B56357;
     color: #ececec;
     Width: 100%;
-    Height: 80px;
+    Height: 74px;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,21 +14,30 @@
     box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
 }
 
-#logo {
+.header > .logo {
     display: inline-block;
-    height: 60px;
+    height: 54px;
 }
 
-.tiny-header {
+.small-nav {
+    float: right;
     display: none;
+    padding-top: 5px;
+}
+
+.small-nav a{
+    color: #ffffff;
+    font-size: 24px
 }
 
 @media screen and (max-width: 750px) {
-    .big-header {
-        display: none;
+    .header > .logo {
+        height: 40px;
     }
-    .tiny-header {
-        display: show;
+    .hr-navbar {
+        height: 60px;
     }
-    
+    .small-nav {
+        display: inline;
+    }
 }

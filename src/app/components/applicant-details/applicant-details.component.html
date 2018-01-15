@@ -1,4 +1,9 @@
 <mat-card *ngIf="applicant">
+  <div class="back">
+    <a routerLink="/applicants" href="#" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back To Applicants
+    </a>
+  </div>
   <h3>{{applicant.firstName}} {{applicant.lastName}}</h3>
   <div class="contact-info">
     <div>{{applicant.email}} | {{applicant.phone}}<br><br>
@@ -10,4 +15,5 @@
   <h5>Experience: {{applicant.monthsExp / 12 | number:'1.0-0'}} years, {{applicant.monthsExp % 12}} months</h5><br>
   <h4>Notes:</h4>
   <p>{{applicant.notes}}</p>
+  <a (click)="onDeleteClick(this.id)" class="btn btn-danger"> Delete</a>
 </mat-card>

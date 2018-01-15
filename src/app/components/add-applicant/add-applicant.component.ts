@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./add-applicant.component.css']
 })
 export class AddApplicantComponent implements OnInit {
+
   applicant: Applicant = {
     firstName: '',
     lastName: '',
@@ -19,6 +20,7 @@ export class AddApplicantComponent implements OnInit {
     addressLineTwo: '',
     city: '',
     state: '',
+    zipCode: null,
     monthsExp: null,
     notes: '',
     registrationDate: ''

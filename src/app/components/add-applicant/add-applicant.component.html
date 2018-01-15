@@ -1,21 +1,21 @@
-<mat-card class="form-card container" fxLayout="column">
+<mat-card class="form-card">
 
-    <div class="container" fxLayout="row">
-      <a routerLink="/" href="#" class="btn btn-link">
-      <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
+    <div class="back">
+      <a routerLink="/applicants" href="#" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Applicants
       </a>
     </div>
-    <div class="container" fxLayout="row" fxLayoutAlign="center">
+    <div>
         <h2>New Applicant</h2>
     </div>
     <br>
-    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
     
-      <div class="container name-fields" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="left"  fxLayoutGap="10px">
+      <div class="name-fields">
         <!-- First Name field -->
-          <div class="form-group" fxFlex="30">
+          <div class="form-group">
             <label for="firstName">First Name*</label>
-            <input 
+            <input
             type="text"
             class="form-control"
             [ngClass]="{'is-invalid': applicantFirstName.errors?.required && applicantFirstName.touched || applicantFirstName.errors?.minlength && applicantFirstName.touched}"
@@ -34,7 +34,7 @@
           </div>
 
         <!-- Last Name field -->
-          <div class="form-group" fxFlex="30">
+          <div class="form-group">
             <label for="lastName">Last Name*</label>
             <input 
             type="text"
@@ -53,12 +53,11 @@
               Last Name is too short
             </div>
           </div>
-        </div>
 
-      <div class="container contact-fields" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="left"  fxLayoutGap="10px">
+
 
         <!-- Email field -->
-          <div class="form-group" fxFlex="25">
+          <div class="form-group">
             <label for="email">Email</label>
             <input 
             type="email"
@@ -80,7 +79,7 @@
     
         <!-- Phone field -->
           <div class="form-group">
-              <label for="phone">Phone (ex. 123-456-7890)</label>
+              <label for="phone">Phone</label>
               <input 
               type="text"
               class="form-control"
@@ -95,17 +94,14 @@
                 Phone is required
               </div>
               <div *ngIf="applicantPhone.hasError('pattern') && applicantPhone.touched" class="invalid-feedback">
-                Phone is not a valid number
+                Phone is not in correct format (xxx-xxx-xxxx)
               </div>
             </div>
         </div>
-
-      <hr>
-      <h3>Address Details:</h3>
-
+      <div class="street-fields">
       <!-- Address Line One -->
         <div class="form-group">
-          <label for="addressLineOne">Line 1*</label><br>
+          <label for="addressLineOne">Street Address*</label><br>
           <input 
           type="text"
           class="form-control"
@@ -122,7 +118,7 @@
 
       <!-- Address Line Two -->
         <div class="form-group">
-          <label for="addressLineTwo">Line 2</label><br>
+          <label for="addressLineTwo">Apartment</label><br>
           <input 
           type="text"
           class="form-control"
@@ -131,7 +127,9 @@
           #applicantAddressLineTwo = "ngModel"
           >
         </div>
+      </div>
 
+      <div class="city-state-fields">
       <!-- City -->
       <div class="form-group">
         <label for="city">City*</label><br>
@@ -234,8 +232,57 @@
         </div>
       </div>
 
+    <div></div>
+    <div></div>
+
+    <!-- Months Experience -->
+      <div class="form-group">
+        <label for="monthsExp">Experience in Months</label><br>
+        <input 
+        type="number"
+        class="form-control"
+        [(ngModel)]="applicant.monthsExp"
+        name="monthsExp"
+        >
+      </div>
+
+    <!-- Registration Date -->
+      <div class="form-group">
+        <label for="registrationDate">Registration Date*</label><br>
+        <input 
+        type="date"
+        class="form-control"
+        [(ngModel)]="applicant.registrationDate"
+        [ngClass]="{'is-invalid': applicantRegistrationDate.errors?.required && applicantRegistrationDate.touched}"
+        name="registrationDate"
+        #applicantRegistrationDate = "ngModel"
+        required
+        >
+        <div *ngIf="applicantRegistrationDate.touched && applicantRegistrationDate.hasError('required')" class="invalid-feedback">
+          Registration Date is required
+        </div>
+      </div>
+
+      </div>
+      <br>
+
+      <div class="name-fields">
+
+      <!-- Notes -->
+        <div class="form-group">
+          <label for="notes">Notes</label><br>
+          <textarea
+          type="text"
+          class="form-control"
+          [(ngModel)]="applicant.notes"
+          name="notes"
+          style="resize: vertical;"
+          >
+          </textarea>
+        </div>
 
 
         <input type="submit" value="Submit">
+      </div>
     </form>
 </mat-card>

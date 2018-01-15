@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="main">
   <div>
     <mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="name">
@@ -15,11 +15,7 @@
       </ng-container>
       <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-        <mat-cell *matCellDef="let applicant"><a [routerLink]= "['/applicants/' + applicant.key]" class="btn btn-info"> Details</a></mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="delete">
-        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-        <mat-cell *matCellDef="let applicant"><a (click)="onDeleteClick(applicant.key)" class="btn btn-danger"> Delete</a></mat-cell>
+        <mat-cell *matCellDef="let applicant"><a [routerLink]= "['/applicants/' + applicant.key]" class="btn btn-info" > Details</a></mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

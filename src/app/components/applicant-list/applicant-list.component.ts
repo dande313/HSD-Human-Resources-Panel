@@ -12,7 +12,8 @@ import {MatTableDataSource, MatSort} from '@angular/material';
 })
 export class ApplicantListComponent implements OnInit {
   dataSource: any;
-  displayedColumns = ['name', 'email', 'phone', 'details', 'delete'];
+  displayedColumns = ['name', 'email', 'phone', 'details'];
+  mobile: boolean;
 
   constructor(
     private applicantService: ApplicantService,
@@ -25,13 +26,12 @@ export class ApplicantListComponent implements OnInit {
       console.log(applicants);
       this.dataSource = new MatTableDataSource<Applicant>(applicants);
     });
-  }
 
-  onDeleteClick(id) {
-    if (confirm('Are you sure?')) {
-      console.log(id + ' will be deleted');
-      this.applicantService.deleteClient(id);
-      this.router.navigate(['/applicants']);
+    // determine if mobile
+    if (window.screen.width >= 500) { // 768px portrait
+      this.mobile = true;
+    } else {
+      this.mobile = false;
     }
   }
 }
