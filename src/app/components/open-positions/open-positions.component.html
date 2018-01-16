@@ -1,3 +1,13 @@
 <mat-card *ngIf="position">
+    <div class="back">
+        <a routerLink="/positions" href="#" class="btn btn-link">
+        <i class="fa fa-arrow-circle-o-left"></i> Back To Positions
+        </a>
+      </div>
     <h3>{{position.title}}</h3>
+    <h4>{{position.department}}: {{position.city}}, {{position.state}}</h4>
+    <hr>
+    <h4>Notes:</h4>
+    <p>{{position.notes}}</p>
+      <a (click)="onDeleteClick(this.id)" class="btn btn-danger"> Delete</a>
   </mat-card>

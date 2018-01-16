@@ -11,7 +11,7 @@ import {
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {

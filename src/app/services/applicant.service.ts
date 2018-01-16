@@ -32,7 +32,7 @@ export class ApplicantService {
     this.applicantsRef.push(applicant);
   }
 
-  deleteClient(id: string) {
+  deleteApplicant(id: string) {
     return this.applicantsRef.remove(id);
   }
 

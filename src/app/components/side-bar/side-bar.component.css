@@ -1,13 +1,14 @@
 .sidenav {
     height: 100%;
     width: 170px;
-    margin-top: 75px; 
+    margin-top: 49px; 
     position: fixed;
+    vertical-align: center;
 
     z-index: 0;
     top: 0;
     left: 0;
-    background-color: #d4eee6;
+    background-color: #caece0;
     overflow-x: hidden;
     padding-top: 20px;
     -webkit-box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
@@ -18,13 +19,15 @@
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 18px;
     color:#16201c;
     display: block;
+    background-color: #d4eee6;
 }
 
+
 .sidenav a:hover {
-    color: #5c5c5c;
+    background-color:#c3d9e0; 
 }
 
 @media screen and (max-width: 750px) {

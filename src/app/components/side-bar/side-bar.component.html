@@ -1,7 +1,31 @@
 <div class="sidenav">
+    <!--
     <a href="#" routerLink="/">Home</a>
     <a href="#" routerLink="/applicants">Applicants</a>
     <a href="#" routerLink="/applicants/new">Add Applicant</a>
     <a href="#" routerLink="/positions">Open Positions</a>
     <a href="#" routerLink="/positions/new">Add Position</a>
+    -->
+    <mat-list class="side-list" layout-align='center center' layout='column'>
+                <a mat-list-item [routerLink]="['/']" >
+                    Home
+                </a>
+                <mat-divider></mat-divider>
+                <a mat-list-item [routerLink]="['/applicants']">
+                    Applicants
+                </a>
+                <mat-divider></mat-divider>
+                <a mat-list-item [routerLink]="['/applicants/new']" >
+                    Add Applicant
+                </a>
+                <mat-divider></mat-divider>
+                <a mat-list-item [routerLink]="['/positions']" >
+                    Positions
+                </a>
+                <mat-divider></mat-divider>
+                <a mat-list-item [routerLink]="['/positions/new']" >
+                    Add Position
+                </a>
+                <mat-divider></mat-divider>
+    </mat-list>
 </div>

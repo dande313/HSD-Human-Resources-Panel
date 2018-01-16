@@ -28,4 +28,12 @@ export class OpenPositionsComponent implements OnInit {
         });
   }
 
+  onDeleteClick(id) {
+    if (confirm('Are you sure?')) {
+      console.log(id + ' will be deleted');
+      this.positionService.deletePosition(id);
+      this.router.navigate(['/positions']);
+    }
+  }
+
 }

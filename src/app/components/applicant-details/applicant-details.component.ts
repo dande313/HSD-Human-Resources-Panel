@@ -31,7 +31,7 @@ export class ApplicantDetailsComponent implements OnInit {
   onDeleteClick(id) {
     if (confirm('Are you sure?')) {
       console.log(id + ' will be deleted');
-      this.applicantService.deleteClient(id);
+      this.applicantService.deleteApplicant(id);
       this.router.navigate(['/applicants']);
     }
   }

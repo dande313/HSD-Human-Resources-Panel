@@ -28,4 +28,8 @@ export class PositionService {
     return this.position;
   }
 
+  deletePosition(id: string) {
+    return this.positionsRef.remove(id);
+  }
+
 }
