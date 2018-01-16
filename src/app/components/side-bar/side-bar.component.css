@@ -1,19 +1,24 @@
 .sidenav {
     height: 100%;
     width: 170px;
-    margin-top: 49px; 
+    margin-top: 74px; 
     position: fixed;
     vertical-align: center;
 
-    z-index: 0;
+    z-index: 2;
     top: 0;
     left: 0;
     background-color: #caece0;
     overflow-x: hidden;
-    padding-top: 20px;
     -webkit-box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
     -moz-box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
     box-shadow: 2px 2px 2px 0px rgba(140,137,140,1);
+}
+
+.side-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .sidenav a {
@@ -28,6 +33,10 @@
 
 .sidenav a:hover {
     background-color:#c3d9e0; 
+}
+
+.sidenav.active {
+    background-color:#0f0112
 }
 
 @media screen and (max-width: 750px) {

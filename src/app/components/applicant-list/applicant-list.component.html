@@ -1,27 +1,48 @@
-<mat-card class="main">
-  <div>
-    <mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let applicant"> {{applicant.firstName}} {{applicant.lastName}}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> E-Mail </mat-header-cell>
-        <mat-cell *matCellDef="let applicant"> <a [href]="'mailto:' + applicant.email" >{{applicant.email}}</a></mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
-        <mat-cell *matCellDef="let applicant"> {{applicant.phone}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="details">
-        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-        <mat-cell *matCellDef="let applicant"><a [routerLink]= "['/applicants/' + applicant.key]" class="btn btn-info btn-sm" > Details</a></mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </div>
-</mat-card>
+<div>
+    <ngx-datatable
+      class="material fullscreen"
+      [rows]="rows"
+      [loadingIndicator]="false"
+      [columnMode]="'force'"
+      [headerHeight]="40"
+      [limit]="10"
+      [rowHeight]="'auto'"
+      [reorderable]="true"
+      >
+      <ngx-datatable-column name="Name" prop="lastName">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+              <span class="responsive-size" [innerHTML]="row['lastName']+ ', ' + row['firstName']"></span>
+            </ng-template>
+      </ngx-datatable-column>
+
+      <!-- email -->
+      <ngx-datatable-column name="Email" prop="email">
+          <ng-template let-row="row" let-value="row" ngx-datatable-cell-template>
+            <a [href]="'mailto:' + value.email"><span class="small-screen-hide">{{value.email}}</span><span class="large-screen-hide">Link</span></a>
+          </ng-template>
+      </ngx-datatable-column>
+
+      <!-- phone -->
+      <ngx-datatable-column name="Phone" prop="phone">
+          <ng-template let-row="row" let-value="row" ngx-datatable-cell-template>
+              <a [href]="'tel:1-' + value.phone"><span class="small-screen-hide">{{value.phone}}</span><span class="large-screen-hide">Call</span></a>
+            </ng-template>
+      </ngx-datatable-column>
+
+      <!-- City & State -->
+      <ngx-datatable-column name="Location" prop="city">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <span [innerHTML]="row['city']+ ', ' + row['state']" class="responsive-size"></span>
+        </ng-template>
+      </ngx-datatable-column>
+
+    <ngx-datatable-column name="Details" prop="key">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+          <a [routerLink]= "['/applicants/' + row['key']]" class="" > <i class="material-icons">arrow_forward</i></a>
+      </ng-template>
+    </ngx-datatable-column>  
+  </ngx-datatable>
+</div>
 
 
 

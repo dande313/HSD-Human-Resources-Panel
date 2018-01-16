@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { PositionService } from '../../services/position.service';
 import { Position } from '../../models/position';
 import {MatTableDataSource, MatSort} from '@angular/material';
+import {ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-open-positions-list',
   templateUrl: './open-positions-list.component.html',
-  styleUrls: ['./open-positions-list.component.css']
+  styleUrls: ['./open-positions-list.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class OpenPositionsListComponent implements OnInit {
   dataSource: any;
   rows = [];
-  loadingIndicator: boolean = true;
-  reorderable: boolean = true;
   columns = [
     { name: 'Title', prop: 'title' },
     { name: 'Department', prop: 'department' },

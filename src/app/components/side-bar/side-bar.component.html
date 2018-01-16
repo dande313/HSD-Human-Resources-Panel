@@ -6,26 +6,26 @@
     <a href="#" routerLink="/positions">Open Positions</a>
     <a href="#" routerLink="/positions/new">Add Position</a>
     -->
-    <mat-list class="side-list" layout-align='center center' layout='column'>
-                <a mat-list-item [routerLink]="['/']" >
+    <ul class="side-list">
+                <li><a mat-list-item [routerLink]="['/']" >
                     Home
-                </a>
+                </a></li>
                 <mat-divider></mat-divider>
-                <a mat-list-item [routerLink]="['/applicants']">
+                <li><a mat-list-item [routerLink]="['/applicants']">
                     Applicants
-                </a>
+                </a></li>
                 <mat-divider></mat-divider>
-                <a mat-list-item [routerLink]="['/applicants/new']" >
+                <li><a mat-list-item [routerLink]="['/applicants/new']" >
                     Add Applicant
-                </a>
+                </a></li>
                 <mat-divider></mat-divider>
-                <a mat-list-item [routerLink]="['/positions']" >
+                <li></li><a mat-list-item [routerLink]="['/positions']" >
                     Positions
                 </a>
                 <mat-divider></mat-divider>
-                <a mat-list-item [routerLink]="['/positions/new']" >
+                <li><a mat-list-item [routerLink]="['/positions/new']" >
                     Add Position
-                </a>
+                </a></li>
                 <mat-divider></mat-divider>
-    </mat-list>
+            </ul>
 </div>

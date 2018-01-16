@@ -1,37 +1,20 @@
-.mat-header-cell {
-    font-size: 16px;
-}
-
 .btn-info {
     background-color: #70acf0;
-}
-
-.ngx-datatable.material .datatable-body .progress-linear {
-  display: none !important;
 }
 
 .material-icons {
   font-size: 18px;
 }
 
-.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
-  vertical-align: center !important;
-  display: none !important;
+.ngx-datatable {
+  font-size:85px !important;
 }
 
-@media screen and (max-width: 700px) {
-  .desktop-hidden {
-    display: initial;
-  }
-  .mobile-hidden {
-    display: none;
+@media screen and (max-width: 400px) {
+  .responsive-size {
+    font-size:12px;
   }
 }
-@media screen and (min-width: 700px) {
-  .desktop-hidden {
-    display: none;
-  }
-  .mobile-hidden {
-    display: initial;
-  }
+@media screen and (min-width: 400px) {
+
 }

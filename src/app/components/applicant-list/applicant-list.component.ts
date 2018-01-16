@@ -12,8 +12,12 @@ import {MatTableDataSource, MatSort} from '@angular/material';
 })
 export class ApplicantListComponent implements OnInit {
   dataSource: any;
-  displayedColumns = ['name', 'email', 'phone', 'details'];
-  mobile: boolean;
+  rows = [];
+  columns = [
+    { name: 'Name', prop: 'name' },
+    { name: 'Department', prop: 'department' },
+    { name: 'Date Posted', prop: 'postDate' }
+  ];
 
   constructor(
     private applicantService: ApplicantService,
@@ -24,14 +28,7 @@ export class ApplicantListComponent implements OnInit {
   ngOnInit() {
     this.applicantService.getApplicants().subscribe(applicants => {
       console.log(applicants);
-      this.dataSource = new MatTableDataSource<Applicant>(applicants);
+      this.rows = applicants;
     });
-
-    // determine if mobile
-    if (window.screen.width >= 500) { // 768px portrait
-      this.mobile = true;
-    } else {
-      this.mobile = false;
-    }
   }
 }
