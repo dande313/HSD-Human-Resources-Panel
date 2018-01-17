@@ -5,12 +5,12 @@ import {MatTableDataSource, MatSort} from '@angular/material';
 import {ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-open-positions-list',
-  templateUrl: './open-positions-list.component.html',
-  styleUrls: ['./open-positions-list.component.css'],
+  selector: 'app-positions-list',
+  templateUrl: './positions-list.component.html',
+  styleUrls: ['./positions-list.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class OpenPositionsListComponent implements OnInit {
+export class PositionsListComponent implements OnInit {
   dataSource: any;
   rows = [];
   columns = [

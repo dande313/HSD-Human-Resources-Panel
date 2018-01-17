@@ -1,11 +1,17 @@
 <div>
+    <input
+    type='text'
+    style='padding:8px;margin:15px auto;width:240px;'
+    placeholder='Type to filter by name...'
+    (keyup)='updateFilter($event)'
+    />
     <ngx-datatable
-      class="material fullscreen"
+      class="material"
       [rows]="rows"
       [loadingIndicator]="false"
       [columnMode]="'force'"
       [headerHeight]="40"
-      [limit]="10"
+      [footerHeight]="40"
       [rowHeight]="'auto'"
       [reorderable]="true"
       >
@@ -18,15 +24,15 @@
       <!-- email -->
       <ngx-datatable-column name="Email" prop="email">
           <ng-template let-row="row" let-value="row" ngx-datatable-cell-template>
-            <a [href]="'mailto:' + value.email"><span class="small-screen-hide">{{value.email}}</span><span class="large-screen-hide">Link</span></a>
+            <a [href]="'mailto:' + value.email" class="responsive-size"><span class="small-screen-hide">{{value.email}}</span><span class="large-screen-hide">Link</span></a>
           </ng-template>
       </ngx-datatable-column>
 
       <!-- phone -->
       <ngx-datatable-column name="Phone" prop="phone">
           <ng-template let-row="row" let-value="row" ngx-datatable-cell-template>
-              <a [href]="'tel:1-' + value.phone"><span class="small-screen-hide">{{value.phone}}</span><span class="large-screen-hide">Call</span></a>
-            </ng-template>
+              <a [href]="'tel:1-' + value.phone" class="responsive-size"><span class="small-screen-hide">{{value.phone}}</span><span class="large-screen-hide">Call</span></a>
+          </ng-template>
       </ngx-datatable-column>
 
       <!-- City & State -->

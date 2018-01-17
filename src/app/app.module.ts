@@ -19,8 +19,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 // Positions Components
-import { OpenPositionsListComponent } from './components/open-positions-list/open-positions-list.component';
-import { OpenPositionsComponent } from './components/open-positions/open-positions.component';
+import { PositionsListComponent } from './components/positions-list/positions-list.component';
+import { PositionsComponent } from './components/positions/positions.component';
 import { AddPositionComponent } from './components/add-position/add-position.component';
 import { EditPositionComponent } from './components/edit-position/edit-position.component';
 
@@ -40,9 +40,9 @@ import { MaterialModule } from '../material.module';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'positions', component: OpenPositionsListComponent},
+  {path: 'positions', component: PositionsListComponent},
   {path: 'positions/new', component: AddPositionComponent},
-  {path: 'positions/:id', component: OpenPositionsComponent},
+  {path: 'positions/:id', component: PositionsComponent},
   {path: 'positions/:id/edit', component: EditPositionComponent},
   {path: 'applicants', component: ApplicantListComponent},
   {path: 'applicants/new', component: AddApplicantComponent},
@@ -54,8 +54,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    OpenPositionsListComponent,
-    OpenPositionsComponent,
+    PositionsListComponent,
+    PositionsComponent,
     HomeComponent,
     AddPositionComponent,
     EditPositionComponent,

@@ -13,6 +13,7 @@ import {MatTableDataSource, MatSort} from '@angular/material';
 export class ApplicantListComponent implements OnInit {
   dataSource: any;
   rows = [];
+  temp = [];
   columns = [
     { name: 'Name', prop: 'name' },
     { name: 'Department', prop: 'department' },
@@ -28,7 +29,21 @@ export class ApplicantListComponent implements OnInit {
   ngOnInit() {
     this.applicantService.getApplicants().subscribe(applicants => {
       console.log(applicants);
+      this.temp = [...applicants];
       this.rows = applicants;
     });
+  }
+
+  updateFilter(event) {
+    console.log(event)
+    const val = event.target.value.toLowerCase();
+
+    // filter our data
+    const temp = this.temp.filter(function(d) {
+      return (d.lastName + d.firstName).toLowerCase().indexOf(val) !== -1 || !val;
+    });
+
+    // update the rows
+    this.rows = temp;
   }
 }

@@ -4,11 +4,11 @@ import { Position } from '../../models/position';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-open-positions',
-  templateUrl: './open-positions.component.html',
-  styleUrls: ['./open-positions.component.css']
+  selector: 'app-positions',
+  templateUrl: './positions.component.html',
+  styleUrls: ['./positions.component.css']
 })
-export class OpenPositionsComponent implements OnInit {
+export class PositionsComponent implements OnInit {
   id: string;
   position: Position;
 

@@ -28,6 +28,10 @@ export class PositionService {
     return this.position;
   }
 
+  newPosition(position: Position) {
+    this.positionsRef.push(position);
+  }
+
   deletePosition(id: string) {
     return this.positionsRef.remove(id);
   }

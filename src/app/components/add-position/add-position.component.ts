@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicantService } from '../../services/applicant.service';
-import { Applicant } from '../../models/applicant';
+import { PositionService } from '../../services/position.service';
+import { Position } from '../../models/position';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -10,9 +10,31 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class AddPositionComponent implements OnInit {
 
-  constructor() { }
+  position: Position = {
+    title: '',
+    department: '',
+    city: '',
+    state: '',
+    budget: null,
+    notes: '',
+    postDate: '',
+    open: true
+  };
+  constructor(
+    private router: Router,
+    private positionService: PositionService
+  ) { }
 
   ngOnInit() {
   }
+  onSubmit({value, valid}: {value: Position, valid: boolean}) {
 
+    if (!valid) {
+      this.router.navigate(['/positions/new']);
+    } else {
+      // Add new client
+      this.positionService.newPosition(value);
+      this.router.navigate(['/positions']);
+    }
+  }
 }
