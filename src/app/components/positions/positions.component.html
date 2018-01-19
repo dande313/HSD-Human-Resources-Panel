@@ -10,4 +10,5 @@
     <h4>Notes:</h4>
     <p>{{position.notes}}</p>
       <a (click)="onDeleteClick(this.id)" class="btn btn-danger"> Delete</a>
+      <a [routerLink]="['/positions/'+ id + '/edit']" class="btn btn-edit">Edit</a>
   </mat-card>

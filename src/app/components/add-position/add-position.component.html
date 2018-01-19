@@ -10,9 +10,10 @@
   </div>
   <br>
   <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
-  
+    
+    <div class="info-fields" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
       <!-- Title field -->
-        <div class="form-group">
+        <div class="form-group" fxFlex="50%">
           <label for="title">Title*</label>
           <input
           type="text"
@@ -32,8 +33,8 @@
           </div>
         </div>
 
-      <!-- Last Name field -->
-        <div class="form-group">
+      <!-- Department field -->
+        <div class="form-group" fxFlex="50%">
           <label for="department">Department*</label>
           <input 
           type="text"
@@ -52,7 +53,9 @@
             Last Name is too short
           </div>
         </div>
+      </div>
 
+  <div class="city-state-fields" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
     <!-- City -->
     <div class="form-group">
       <label for="city">City*</label><br>
@@ -138,22 +141,22 @@
         </div>
       </div>
 
-
-  <!-- Post Date Date -->
-    <div class="form-group">
-      <label for="postDate">Date Posted*</label><br>
-      <input 
-      type="date"
-      class="form-control"
-      [(ngModel)]="position.postDate"
-      [ngClass]="{'is-invalid': positionPostDate.errors?.required && positionPostDate.touched}"
-      name="postDate"
-      #positionPostDate = "ngModel"
-      required
-      >
-      <div *ngIf="positionPostDate.touched && positionPostDate.hasError('required')" class="invalid-feedback">
-        Registration Date is required
-      </div>
+        <!-- Post Date Date -->
+        <div class="form-group">
+          <label for="postDate">Date Posted*</label><br>
+          <input 
+          type="date"
+          class="form-control"
+          [(ngModel)]="position.postDate"
+          [ngClass]="{'is-invalid': positionPostDate.errors?.required && positionPostDate.touched}"
+          name="postDate"
+          #positionPostDate = "ngModel"
+          required
+          >
+          <div *ngIf="positionPostDate.touched && positionPostDate.hasError('required')" class="invalid-feedback">
+            Registration Date is required
+          </div>
+        </div>
     </div>
 
     <br>

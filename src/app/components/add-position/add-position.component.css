@@ -8,3 +8,7 @@ input[type=date]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+textarea {
+    height: 150px;
+  }

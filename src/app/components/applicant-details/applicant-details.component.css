@@ -1,3 +1,9 @@
 .contact-info {
     font-size:16px;
 }
+
+.btn-edit {
+    background-color: #518bbd;
+    color: #fcfcfc;
+    width: 70px;
+}
