@@ -1,11 +1,4 @@
 <div class="sidenav">
-    <!--
-    <a href="#" routerLink="/">Home</a>
-    <a href="#" routerLink="/applicants">Applicants</a>
-    <a href="#" routerLink="/applicants/new">Add Applicant</a>
-    <a href="#" routerLink="/positions">Open Positions</a>
-    <a href="#" routerLink="/positions/new">Add Position</a>
-    -->
     <ul class="side-list">
                 <li><a mat-list-item [routerLink]="['/']" >
                     Home
@@ -15,17 +8,9 @@
                     Applicants
                 </a></li>
                 <mat-divider></mat-divider>
-                <li><a mat-list-item [routerLink]="['/applicants/new']" >
-                    Add Applicant
-                </a></li>
-                <mat-divider></mat-divider>
                 <li></li><a mat-list-item [routerLink]="['/positions']" >
                     Positions
                 </a>
-                <mat-divider></mat-divider>
-                <li><a mat-list-item [routerLink]="['/positions/new']" >
-                    Add Position
-                </a></li>
                 <mat-divider></mat-divider>
             </ul>
 </div>

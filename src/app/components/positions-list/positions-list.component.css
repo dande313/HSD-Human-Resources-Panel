@@ -1,6 +1,25 @@
-.btn-info {
-    background-color: #70acf0;
+.select-filter {
+  padding:10px;
+  margin:15px auto;
+  width:120px;
 }
+
+.filter-input {
+  padding:10px;
+  margin:15px auto;
+  width:180px;
+  border: 2px;
+}
+
+.add-button {
+  background-color: #518bbd;
+  color: #fcfcfc;
+  float: right;
+  padding:9px;
+  margin-top:15px;
+  width: 100px;
+}
+
 
 .material-icons {
   font-size: 18px;
@@ -10,6 +29,21 @@
   .responsive-size {
     font-size:12px;
   }
+  .select-filter {
+    width:105px;
+    font-size:12px;
+  }
+  
+  .filter-input {
+    width:85px;
+    font-size:12px;
+  }
+  
+  .add-button {
+    width: 75px;
+    font-size:12px;
+  }
+
 }
 @media screen and (min-width: 400px) {
   .responsive-size {

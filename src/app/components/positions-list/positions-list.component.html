@@ -1,19 +1,21 @@
 
   <div>
       <input
+      class="filter-input"
       type='text'
-      style='padding:8px;margin:15px auto;width:160px;'
       placeholder='Type to filter by...'
       (keyup)='updateFilter($event)'
       />
       <select
-      style='padding:10px;margin:15px auto;width:100px;'
+      class='select-filter'
       (change)='updateFilterType($event)'
       >
         <option value="title">Title</option>
         <option value="department">Department</option>
         <option value="location">Location</option>
       </select>
+      <a type="button" class="btn add-button" [routerLink]="['/positions/new']"><i class="fa fa-plus"></i> New</a>
+
       <ngx-datatable
         class="material"
         [rows]="rows"
