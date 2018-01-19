@@ -1,7 +1,8 @@
-<mat-card>
+<mat-card class="login-card">
     <div class="card">
       <div class="card-body">
-        <h1 class="text-center">Login</h1>
+        <div class="text-center sign-in-header">Sign-in to your HR Account</div>
+        <hr>
         <form (submit)="onSubmit()">
           <div class="form-group">
             <label for="email">Email</label>
@@ -11,7 +12,8 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" [(ngModel)]="password" name="password" required>
           </div>
-          <input type="submit" value="Submit" class="btn btn-primary btn-block">
+          <br>
+          <input type="submit" value="Submit" class="btn btn-submit btn-block">
         </form>
       </div>
     </div>
