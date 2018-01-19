@@ -38,8 +38,14 @@ import { ApplicantService} from './services/applicant.service';
 
 import { MaterialModule } from '../material.module';
 
+// Authentication
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'positions', component: PositionsListComponent},
   {path: 'positions/new', component: AddPositionComponent},
   {path: 'positions/:id', component: PositionsComponent},
@@ -65,7 +71,8 @@ const appRoutes: Routes = [
     ApplicantListComponent,
     ApplicantDetailsComponent,
     AddApplicantComponent,
-    EditApplicantComponent
+    EditApplicantComponent,
+    LoginComponent
   ],
   exports: [
   ],
@@ -84,7 +91,9 @@ const appRoutes: Routes = [
     AngularFireDatabase,
     AngularFireDatabaseModule,
     PositionService,
-    ApplicantService
+    ApplicantService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

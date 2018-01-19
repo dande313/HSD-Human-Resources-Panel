@@ -26,8 +26,21 @@
 }
 
 .small-nav a{
-    color: #ffffff;
+    color: ##ececec;
     font-size: 24px
+}
+
+.user-email {
+    padding-top: 10px;
+    float: right;
+    text-align: right;
+}
+
+.sign-out-button {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ececec;
+    
 }
 
 @media screen and (max-width: 750px) {
