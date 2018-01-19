@@ -44,16 +44,16 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'positions', component: PositionsListComponent},
-  {path: 'positions/new', component: AddPositionComponent},
-  {path: 'positions/:id', component: PositionsComponent},
-  {path: 'positions/:id/edit', component: EditPositionComponent},
-  {path: 'applicants', component: ApplicantListComponent},
-  {path: 'applicants/new', component: AddApplicantComponent},
-  {path: 'applicants/:id', component: ApplicantDetailsComponent},
-  {path: 'applicants/:id/edit', component: EditApplicantComponent},
+  {path: 'positions', component: PositionsListComponent, canActivate: [AuthGuard]},
+  {path: 'positions/new', component: AddPositionComponent, canActivate: [AuthGuard]},
+  {path: 'positions/:id', component: PositionsComponent, canActivate: [AuthGuard]},
+  {path: 'positions/:id/edit', component: EditPositionComponent, canActivate: [AuthGuard]},
+  {path: 'applicants', component: ApplicantListComponent, canActivate: [AuthGuard]},
+  {path: 'applicants/new', component: AddApplicantComponent, canActivate: [AuthGuard]},
+  {path: 'applicants/:id', component: ApplicantDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'applicants/:id/edit', component: EditApplicantComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
