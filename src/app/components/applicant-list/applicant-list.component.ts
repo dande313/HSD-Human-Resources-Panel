@@ -29,7 +29,6 @@ export class ApplicantListComponent implements OnInit {
 
   ngOnInit() {
     this.applicantService.getApplicants().subscribe(applicants => {
-      console.log(applicants);
       this.temp = [...applicants];
       this.rows = applicants;
       this.filterType = 'name';
