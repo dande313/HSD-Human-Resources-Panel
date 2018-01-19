@@ -1,6 +1,19 @@
 
   <div>
-    
+      <input
+      type='text'
+      style='padding:8px;margin:15px auto;width:160px;'
+      placeholder='Type to filter by...'
+      (keyup)='updateFilter($event)'
+      />
+      <select
+      style='padding:10px;margin:15px auto;width:100px;'
+      (change)='updateFilterType($event)'
+      >
+        <option value="title">Title</option>
+        <option value="department">Department</option>
+        <option value="location">Location</option>
+      </select>
       <ngx-datatable
         class="material"
         [rows]="rows"
