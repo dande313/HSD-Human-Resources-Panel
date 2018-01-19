@@ -34,9 +34,8 @@
 .sidenav a:hover {
     background-color:#c3d9e0; 
 }
-
-.sidenav.active {
-    background-color:#0f0112
+.active a{
+    background-color:#aecbd4;
 }
 
 @media screen and (max-width: 750px) {

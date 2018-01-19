@@ -1,16 +1,17 @@
 <div class="sidenav" *ngIf="isLoggedIn">
     <ul class="side-list">
-                <li><a mat-list-item [routerLink]="['/']" >
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+                    true}"><a [routerLink]="['/']" >
                     Home
                 </a></li>
                 <mat-divider></mat-divider>
-                <li><a mat-list-item [routerLink]="['/applicants']">
+                <li [routerLinkActive]="['active']"><a [routerLink]="['/applicants']">
                     Applicants
                 </a></li>
                 <mat-divider></mat-divider>
-                <li></li><a mat-list-item [routerLink]="['/positions']" >
+                <li [routerLinkActive]="['active']"><a [routerLink]="['/positions']">
                     Positions
-                </a>
+                </a></li>
                 <mat-divider></mat-divider>
             </ul>
 </div>
