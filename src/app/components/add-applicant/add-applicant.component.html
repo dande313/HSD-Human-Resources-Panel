@@ -11,9 +11,9 @@
     <br>
     <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
     
-      <div class="name-fields">
+      <div class="first-row" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
         <!-- First Name field -->
-          <div class="form-group">
+          <div class="form-group" fxFlex="50%">
             <label for="firstName">First Name*</label>
             <input
             type="text"
@@ -34,7 +34,7 @@
           </div>
 
         <!-- Last Name field -->
-          <div class="form-group">
+          <div class="form-group" fxFlex="50%">
             <label for="lastName">Last Name*</label>
             <input 
             type="text"
@@ -53,11 +53,11 @@
               Last Name is too short
             </div>
           </div>
+        </div>
 
-
-
+        <div class="second-row" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
         <!-- Email field -->
-          <div class="form-group">
+          <div class="form-group" fxFlex="30%">
             <label for="email">Email</label>
             <input 
             type="email"
@@ -78,7 +78,7 @@
           </div>
     
         <!-- Phone field -->
-          <div class="form-group">
+          <div class="form-group" fxFlex="30%">
               <label for="phone">Phone</label>
               <input 
               type="text"
@@ -97,10 +97,39 @@
                 Phone is not in correct format (xxx-xxx-xxxx)
               </div>
             </div>
+          <!-- Registration Date -->
+          <div class="form-group" fxFlex="150px">
+            <label for="registrationDate">Registration Date*</label><br>
+            <input 
+            type="date"
+            class="form-control"
+            [(ngModel)]="applicant.registrationDate"
+            [ngClass]="{'is-invalid': applicantRegistrationDate.errors?.required && applicantRegistrationDate.touched}"
+            name="registrationDate"
+            #applicantRegistrationDate = "ngModel"
+            required
+            >
+            <div *ngIf="applicantRegistrationDate.touched && applicantRegistrationDate.hasError('required')" class="invalid-feedback">
+              Registration Date is required
+            </div>
+          </div>
+
+          <!-- Months Experience -->
+          <div class="form-group" fxFlex="150px">
+            <label for="monthsExp">Experience in Months</label><br>
+            <input 
+            type="number"
+            class="form-control"
+            [(ngModel)]="applicant.monthsExp"
+            name="monthsExp"
+            >
+          </div>
         </div>
-      <div class="street-fields">
+        <hr>
+      
+      <div class="street-fields-one" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
       <!-- Address Line One -->
-        <div class="form-group">
+        <div class="form-group" fxFlex="50%">
           <label for="addressLineOne">Street Address*</label><br>
           <input 
           type="text"
@@ -117,8 +146,8 @@
         </div>
 
       <!-- Address Line Two -->
-        <div class="form-group">
-          <label for="addressLineTwo">Apartment</label><br>
+        <div class="form-group" fxFlex="30%">
+          <label for="addressLineTwo">Apt/POB/etc</label><br>
           <input 
           type="text"
           class="form-control"
@@ -129,7 +158,7 @@
         </div>
       </div>
 
-      <div class="city-state-fields">
+      <div class="city-state-fields" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
       <!-- City -->
       <div class="form-group">
         <label for="city">City*</label><br>
@@ -232,39 +261,8 @@
         </div>
       </div>
 
-    <div></div>
-    <div></div>
-
-    <!-- Months Experience -->
-      <div class="form-group">
-        <label for="monthsExp">Experience in Months</label><br>
-        <input 
-        type="number"
-        class="form-control"
-        [(ngModel)]="applicant.monthsExp"
-        name="monthsExp"
-        >
-      </div>
-
-    <!-- Registration Date -->
-      <div class="form-group">
-        <label for="registrationDate">Registration Date*</label><br>
-        <input 
-        type="date"
-        class="form-control"
-        [(ngModel)]="applicant.registrationDate"
-        [ngClass]="{'is-invalid': applicantRegistrationDate.errors?.required && applicantRegistrationDate.touched}"
-        name="registrationDate"
-        #applicantRegistrationDate = "ngModel"
-        required
-        >
-        <div *ngIf="applicantRegistrationDate.touched && applicantRegistrationDate.hasError('required')" class="invalid-feedback">
-          Registration Date is required
-        </div>
-      </div>
-
-      </div>
-      <br>
+    </div>
+      <hr>
 
       <div class="name-fields">
 
