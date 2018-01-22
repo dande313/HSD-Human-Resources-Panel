@@ -1,3 +1,182 @@
-<p>
-  edit-position works!
-</p>
+<mat-card class="form-card">
+
+  <div class="back">
+    <a routerLink="/positions" href="#" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back To Positions
+    </a>
+  </div>
+  <div class="form-title">
+      <h2>New Position</h2>
+  </div>
+  <br>
+  <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+    
+    <div class="info-fields" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
+      <!-- Title field -->
+        <div class="form-group" fxFlex="50%">
+          <label for="title">Title*</label>
+          <input
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': positionTitle.errors?.required && positionTitle.touched || positionTitle.errors?.minlength && positionTitle.touched}"
+          [(ngModel)]="position.title"
+          name="title"
+          #positionTitle = "ngModel"
+          minlength="2"
+          required
+          >
+          <div *ngIf="positionTitle.touched && positionTitle.hasError('required')" class="invalid-feedback">
+            Title is required
+          </div>
+          <div *ngIf="positionTitle.touched && positionTitle.hasError('minlength')" class="invalid-feedback">
+            Title is too short
+          </div>
+        </div>
+
+      <!-- Department field -->
+        <div class="form-group" fxFlex="50%">
+          <label for="department">Department*</label>
+          <input 
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': positionDepartment.errors?.required && positionDepartment.touched || positionDepartment.errors?.minlength && positionDepartment.touched}"
+          [(ngModel)]="position.department"
+          name="department"
+          #positionDepartment = "ngModel"
+          minlength="2"
+          required
+          >
+          <div *ngIf="positionDepartment.touched && positionDepartment.hasError('required')" class="invalid-feedback">
+            Last Name is required
+          </div>
+          <div *ngIf="positionDepartment.touched && positionDepartment.hasError('minlength')" class="invalid-feedback">
+            Last Name is too short
+          </div>
+        </div>
+      </div>
+
+  <div class="city-state-fields" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
+    <!-- City -->
+    <div class="form-group">
+      <label for="city">City*</label><br>
+      <input 
+      type="text"
+      class="form-control"
+      [ngClass]="{'is-invalid': positionCity.errors?.required && positionCity.touched}"
+      [(ngModel)]="position.city"
+      name="city"
+      #positionCity = "ngModel"
+      required
+      >
+      <div *ngIf="positionCity.touched && positionCity.hasError('required')" class="invalid-feedback">
+        City is required
+      </div>
+    </div>
+
+    <!-- State -->
+      <div class="form-group">
+        <label for="state">State*</label><br>
+        <select 
+        class="form-control"
+        [ngClass]="{'is-invalid': positionState.errors?.required && positionState.touched}"
+        [(ngModel)]="position.state"
+        name="state"
+        #positionState = "ngModel"
+        required
+        >
+        <option value="AL">Alabama (AL)</option>
+        <option value="AK">Alaska (AK)</option>
+        <option value="AZ">Arizona (AZ)</option>
+        <option value="AR">Arkansas (AR)</option>
+        <option value="CA">California (CA)</option>
+        <option value="CO">Colorado (CO)</option>
+        <option value="CT">Connecticut (CT)</option>
+        <option value="DE">Delaware (DE)</option>
+        <option value="DC">District Of Columbia (DC)</option>
+        <option value="FL">Florida (FL)</option>
+        <option value="GA">Georgia (GA)</option>
+        <option value="HI">Hawaii (HI)</option>
+        <option value="ID">Idaho (ID)</option>
+        <option value="IL">Illinois (IL)</option>
+        <option value="IN">Indiana (IN)</option>
+        <option value="IA">Iowa (IA)</option>
+        <option value="KS">Kansas (KS)</option>
+        <option value="KY">Kentucky (KY)</option>
+        <option value="LA">Louisiana (LA)</option>
+        <option value="ME">Maine (ME)</option>
+        <option value="MD">Maryland (MD)</option>
+        <option value="MA">Massachusetts (MA)</option>
+        <option value="MI">Michigan (MI)</option>
+        <option value="MN">Minnesota (MN)</option>
+        <option value="MS">Mississippi (MS)</option>
+        <option value="MO">Missouri (MO)</option>
+        <option value="MT">Montana (MT)</option>
+        <option value="NE">Nebraska (NE)</option>
+        <option value="NV">Nevada (NV)</option>
+        <option value="NH">New Hampshire (NH)</option>
+        <option value="NJ">New Jersey (NJ)</option>
+        <option value="NM">New Mexico (NM)</option>
+        <option value="NY">New York (NY)</option>
+        <option value="NC">North Carolina (NC)</option>
+        <option value="ND">North Dakota (ND)</option>
+        <option value="OH">Ohio (OH)</option>
+        <option value="OK">Oklahoma (OK)</option>
+        <option value="OR">Oregon (OR)</option>
+        <option value="PA">Pennsylvania (PA)</option>
+        <option value="RI">Rhode Island (RI)</option>
+        <option value="SC">South Carolina (SC)</option>
+        <option value="SD">South Dakota (SD)</option>
+        <option value="TN">Tennessee (TN)</option>
+        <option value="TX">Texas (TX)</option>
+        <option value="UT">Utah (UT)</option>
+        <option value="VT">Vermont (VT)</option>
+        <option value="VA">Virginia (VA)</option>
+        <option value="WA">Washington (WA)</option>
+        <option value="WV">West Virginia (WV)</option>
+        <option value="WI">Wisconsin (WI)</option>
+        <option value="WY">Wyoming (WY)</option>
+        </select>
+        <div *ngIf="positionState.touched && positionState.hasError('required')" class="invalid-feedback">
+          Must select a State
+        </div>
+      </div>
+
+        <!-- Post Date Date -->
+        <div class="form-group">
+          <label for="postDate">Date Posted*</label><br>
+          <input 
+          type="date"
+          class="form-control"
+          [(ngModel)]="position.postDate"
+          [ngClass]="{'is-invalid': positionPostDate.errors?.required && positionPostDate.touched}"
+          name="postDate"
+          #positionPostDate = "ngModel"
+          required
+          >
+          <div *ngIf="positionPostDate.touched && positionPostDate.hasError('required')" class="invalid-feedback">
+            Registration Date is required
+          </div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <!-- Notes -->
+      <div class="form-group">
+        <label for="notes">Notes</label><br>
+        <textarea
+        type="text"
+        class="form-control"
+        [(ngModel)]="position.notes"
+        name="notes"
+        style="resize: vertical;"
+        >
+        </textarea>
+      </div>
+
+
+      <input type="submit" value="Submit">
+    
+  </form>
+</mat-card>

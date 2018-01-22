@@ -19,17 +19,21 @@ export class ApplicantService {
     });
    }
 
-   getApplicants() {
-     return this.applicants;
-   }
-
-   getApplicant(id: string) {
-    this.applicant = this.db.object('/applicants/' + id).valueChanges();
-    return this.applicant;
+  getApplicants() {
+    return this.applicants;
   }
+
+  getApplicant(id: string) {
+  this.applicant = this.db.object('/applicants/' + id).valueChanges();
+  return this.applicant;
+}
 
   newApplicant(applicant: Applicant) {
     this.applicantsRef.push(applicant);
+  }
+
+  updateApplicant(id: string, applicant: Applicant) {
+    return this.applicantsRef.update(id, applicant);
   }
 
   deleteApplicant(id: string) {
