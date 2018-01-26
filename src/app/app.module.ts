@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { HttpModule } from '@angular/http';
 
 // layout components, etc
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { EditApplicantComponent } from './components/edit-applicant/edit-applica
 // Services
 import { PositionService } from './services/position.service';
 import { ApplicantService} from './services/applicant.service';
+import { WeatherService} from './services/weather.service';
 
 // Materials
 
@@ -42,6 +44,11 @@ import { MaterialModule } from '../material.module';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
+
+// Home Page Components
+import { WeatherComponent } from './components/home/weather/weather.component';
+import { DailyQuoteComponent } from './components/home/daily-quote/daily-quote.component';
+import { ToDoComponent } from './components/home/to-do/to-do.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -72,7 +79,10 @@ const appRoutes: Routes = [
     ApplicantDetailsComponent,
     AddApplicantComponent,
     EditApplicantComponent,
-    LoginComponent
+    LoginComponent,
+    WeatherComponent,
+    DailyQuoteComponent,
+    ToDoComponent
   ],
   exports: [
   ],
@@ -85,7 +95,8 @@ const appRoutes: Routes = [
     MaterialModule,
     FormsModule,
     FlexLayoutModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    HttpModule
   ],
   providers: [
     AngularFireDatabase,
@@ -93,6 +104,7 @@ const appRoutes: Routes = [
     PositionService,
     ApplicantService,
     AuthService,
+    WeatherService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

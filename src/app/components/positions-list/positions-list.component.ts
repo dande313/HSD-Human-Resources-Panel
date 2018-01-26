@@ -25,7 +25,6 @@ export class PositionsListComponent implements OnInit {
 
   ngOnInit() {
     this.positionService.getPositions().subscribe(positions => {
-      console.log(positions);
       this.rows = positions;
       this.temp = [...positions];
       this.filterType = 'name';

@@ -1,0 +1,18 @@
+<mat-card class="weather-card" *ngIf="windType">
+  <h3>Current Weather</h3>
+  <!--Location Selector -->
+  <mat-form-field>
+      <mat-select [(ngModel)]="targetCity" name="targetCity" (ngModelChange)="updateCityWeather($event)">
+          <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <!--Weather Output -->
+  <div *ngIf="temp">
+      <div class="basic"><img class="weather-icon" [src]="weatherIcon"><span class="temp">{{temp}} &#8457;</span></div><br>
+      <div class="precip">{{precipitation}}</div>
+      <div class="humidity">Humidity: {{humidity}}</div>
+      <div *ngIf="wind" class="wind">{{windType}}, {{wind}} mph, {{windDirection}}</div>
+      <div *ngIf="!wind" class="wind">{{windType}}</div> 
+  </div>
+</mat-card>

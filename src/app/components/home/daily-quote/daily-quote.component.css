@@ -5,9 +5,3 @@
 .quote {
     font-size: 18px;
 }
-
-@media screen and (max-width: 750px) {
-    .quote {
-        font-size: 14px;
-    }
-}

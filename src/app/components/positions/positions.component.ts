@@ -18,14 +18,15 @@ export class PositionsComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+
+
   ngOnInit() {
-        // get id from url
-        this.id = this.route.snapshot.params['id'];
-        // get applicant
-        this.positionService.getPosition(this.id).subscribe(position => {
-          this.position = position;
-          console.log(position);
-        });
+    // get id from url
+    this.id = this.route.snapshot.params['id'];
+    // get applicant
+    this.positionService.getPosition(this.id).subscribe(position => {
+      this.position = position;
+    });
   }
 
   onDeleteClick(id) {

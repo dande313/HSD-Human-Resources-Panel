@@ -1,0 +1,16 @@
+.weather-main {
+    margin-left:25px;
+    margin-right:25px;
+}
+
+.temp {
+    font-size: 32px;
+}
+
+.weather-icon {
+    float: left;
+}
+
+.precip {
+    text-transform:capitalize;
+}
