@@ -12,7 +12,7 @@
       <div class="basic"><img class="weather-icon" [src]="weatherIcon"><span class="temp">{{temp}} &#8457;</span></div><br>
       <div class="precip">{{precipitation}}</div>
       <div class="humidity">Humidity: {{humidity}}</div>
-      <div *ngIf="wind" class="wind">{{windType}}, {{wind}} mph, {{windDirection}}</div>
-      <div *ngIf="!wind" class="wind">{{windType}}</div> 
+      <div class="wind">{{windType}}</div>
+      <div *ngIf="wind" class="wind">{{wind}} mph, {{windDirection}}</div> 
   </div>
 </mat-card>

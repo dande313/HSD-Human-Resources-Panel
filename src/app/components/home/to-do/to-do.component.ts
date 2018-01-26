@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDoComponent implements OnInit {
   description: string;
-  priority: boolean;
+  priority= false;
 
   constructor() { }
 

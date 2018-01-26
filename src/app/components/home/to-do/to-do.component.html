@@ -2,12 +2,12 @@
   <h3>To-Do</h3>
   <form class="todo-form" (submit)="addToDo()" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="20px">
       <div class="form-group">
-          <label for="description">Description</label>
-          <input type="text" class="form-control" [(ngModel)]="description" name="description">
+          <label for="description">Description</label><br>
+          <input type="text" [(ngModel)]="description" name="description">
       </div>
       <div class="form-group">
-          <label for="priority">Priority</label>
-          <mat-checkbox class="form-control" color="warn" [(ngModel)]="priority" name="priority"></mat-checkbox>
+          <label for="priority">Priority</label><br>
+          <mat-checkbox style="padding-left:15px;"color="warn" [(ngModel)]="priority" name="priority"></mat-checkbox>
       </div>
       <input type="submit" class="btn btn-primary" value="Add">
   </form>
