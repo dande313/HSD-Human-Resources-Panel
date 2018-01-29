@@ -15,7 +15,7 @@
       </table>
     </form>
     <hr>
-    <div class="todo-list">
+    <div [ngClass] = "{'todo-list-present': todos != ''}" class="todo-list">
       <table style="width:100%;">
         <tr *ngFor="let todo of todos" [ngClass] = "{'priority': todo.priority, 'completed': todo.completed}">
           <td class="description" colspan="2" style="padding-right:10px;">{{todo.description}}</td>

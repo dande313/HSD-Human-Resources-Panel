@@ -50,6 +50,9 @@ import { LoginComponent } from './components/login/login.component';
 import { WeatherComponent } from './components/home/weather/weather.component';
 import { DailyQuoteComponent } from './components/home/daily-quote/daily-quote.component';
 import { ToDoListComponent } from './components/home/to-do-list/to-do-list.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -83,7 +86,10 @@ const appRoutes: Routes = [
     LoginComponent,
     WeatherComponent,
     DailyQuoteComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    EmployeeListComponent,
+    EmployeeDetailsComponent,
+    AddEmployeeComponent
   ],
   exports: [
   ],

@@ -21,13 +21,15 @@ export class ToDoListComponent implements OnInit {
     {text: `"There is no fun in doing nothing when you have nothing to do."`, author: 'Jerome K Jerome'},
     {text: `"I'd rather attempt to do something great and fail, than to attempt to do nothing and succeed."`, author: 'Robert H Schuller'},
     {text: `"The hardest work of all is to do nothing."`, author: 'Ghandi'},
-    {text: `"If you expect nothing from somebody, you will never be disappointed."`, author: 'Sylvia Plath'},
-    {text: `"Nothing is better than going home to a family and eating good food and relaxing."`, author: 'Irina Shayk'},
+    {text: `"We become aware of the void as we fill it."`, author: 'Antonio Porchia'},
+    {text: `"If you look long enough into the void, the void begins to look back into you."`, author: 'Friedrich Nietzche'},
     {text: `"The only thing necessary for the triumph of evil is for good men to do nothing."`, author: 'Edmund Burke'},
     {text: `"Sometimes, the most important thing is to do nothing."`, author: 'Debasish Mridha'},
     {text: `"I believe in a fate that will fall on us if we do nothing."`, author: 'Ronald Reagan'},
     {text: `"The only way to avoid failure is to sit in a corner and do nothing."`, author: 'Kevin Leman'},
-    {text: `"People say nothing is impossible, but I do nothing all day."`, author: 'Winnie the Pooh'}
+    {text: `"People say nothing is impossible, but I do nothing all day."`, author: 'Winnie the Pooh'},
+    {text: `"This is the real secret of life -- to be completely engaged with what you are doing in the here and now. And instead of calling it work, realize it is play."`, author: 'Alan Watts'},
+    {text: `"Muddy water is best cleared just by leaving it alone."`, author: 'Alan Watts'},
   ];
   nothingQuote: object;
 

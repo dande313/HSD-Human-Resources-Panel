@@ -24,7 +24,7 @@ input[type=text], select, textarea{
     background-color: #faad96;
 }
 
-.todo-list {
+.todo-list-present {
     background-color: #ffffff;
 }
 
@@ -60,6 +60,12 @@ th, td {
 .todo-list {
     height: 205px;
     overflow: auto;
+}
+
+@media screen and (max-width: 975px) {
+    input[type=text] {
+        width: 100%;
+    }
 }
 
 
