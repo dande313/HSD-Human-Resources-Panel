@@ -1,3 +1,7 @@
+.todo-card {
+    background-color:#f8f8f8;
+}
+
 .todo-form {
     font-size: 16px;
 }
@@ -17,11 +21,15 @@ input[type=text], select, textarea{
 }
 
 .priority {
-    background-color: #f34e42f1;
-    color: #ffffff;
+    background-color: #faad96;
+}
+
+.todo-list {
+    background-color: #ffffff;
 }
 
 .completed {
+    background-color: #c1fdc8;
     text-decoration: line-through;
 }
 
@@ -39,6 +47,19 @@ th, td {
     padding-right: 12px;
     padding-top: 8px;
     padding-bottom: 8px;
+}
+
+.todo-list tr {
+    border-bottom: 1px solid  #d4d4d4;
+}
+
+.description {
+    padding: 10px;
+}
+
+.todo-list {
+    height: 205px;
+    overflow: auto;
 }
 
 

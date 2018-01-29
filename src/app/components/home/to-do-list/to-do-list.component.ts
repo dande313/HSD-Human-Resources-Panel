@@ -16,6 +16,20 @@ export class ToDoListComponent implements OnInit {
   priority = false;
   completed: boolean;
   loggedInUser: string;
+  getRandomQuote: any;
+  nothingQuotes= [
+    {text: `"There is no fun in doing nothing when you have nothing to do."`, author: 'Jerome K Jerome'},
+    {text: `"I'd rather attempt to do something great and fail, than to attempt to do nothing and succeed."`, author: 'Robert H Schuller'},
+    {text: `"The hardest work of all is to do nothing."`, author: 'Ghandi'},
+    {text: `"If you expect nothing from somebody, you will never be disappointed."`, author: 'Sylvia Plath'},
+    {text: `"Nothing is better than going home to a family and eating good food and relaxing."`, author: 'Irina Shayk'},
+    {text: `"The only thing necessary for the triumph of evil is for good men to do nothing."`, author: 'Edmund Burke'},
+    {text: `"Sometimes, the most important thing is to do nothing."`, author: 'Debasish Mridha'},
+    {text: `"I believe in a fate that will fall on us if we do nothing."`, author: 'Ronald Reagan'},
+    {text: `"The only way to avoid failure is to sit in a corner and do nothing."`, author: 'Kevin Leman'},
+    {text: `"People say nothing is impossible, but I do nothing all day."`, author: 'Winnie the Pooh'}
+  ];
+  nothingQuote: object;
 
   constructor(
     public todoService: TodoService,
@@ -30,7 +44,9 @@ export class ToDoListComponent implements OnInit {
       this.todos = todos.filter(todo => todo.userEmail === this.loggedInUser);
       console.log(todos);
     });
+    this.nothingQuote = this.nothingQuotes[Math.floor(Math.random() * this.nothingQuotes.length)];
   }
+
 
   addToDo() {
     const todoAdded = {description: this.description, priority: this.priority, userEmail: this.loggedInUser, completed: false};
