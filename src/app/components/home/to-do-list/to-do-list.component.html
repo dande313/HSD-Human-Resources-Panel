@@ -1,0 +1,31 @@
+<mat-card>
+  <h3>To-Do</h3>
+    <form class="todo-form" (submit)="addToDo()" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="20px">
+      <table>
+          <tr>
+              <th>Description</th>
+              <th>Priority</th>
+              <th></th>
+          </tr>
+          <tr>
+            <td><input type="text" [(ngModel)]="description" name="description"></td>
+            <td><mat-checkbox class= "priority-check" color="warn" [(ngModel)]="priority" name="priority"></mat-checkbox></td>
+            <td><input type="submit" class="btn btn-primary" value="Add"></td>
+          </tr>
+      </table>
+    </form>
+    <hr>
+    <table style="width:100%;">
+      <tr *ngFor="let todo of todos" [ngClass] = "{'priority': todo.priority}">
+        <td [ngClass] = "{'completed': todo.completed}" colspan="2" style="padding-right:10px;">{{todo.description}}</td>
+        <td class="btn-group pull-right">
+          <a class="btn btn-complete" href="#" (click)="toggleCompleteTodo(todo, todo.key)">
+            <i class="fa fa-check"></i>
+          </a>
+          <a class="btn btn-trash" href="#" (click)="delete(todo.key)">
+              <i class="fa fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    </table>
+</mat-card>

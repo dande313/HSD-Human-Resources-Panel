@@ -34,7 +34,8 @@ import { EditApplicantComponent } from './components/edit-applicant/edit-applica
 // Services
 import { PositionService } from './services/position.service';
 import { ApplicantService} from './services/applicant.service';
-import { WeatherService} from './services/weather.service';
+import { WeatherService} from './components/home/services/weather.service';
+import { TodoService } from './components/home/services/todo.service';
 
 // Materials
 
@@ -48,7 +49,7 @@ import { LoginComponent } from './components/login/login.component';
 // Home Page Components
 import { WeatherComponent } from './components/home/weather/weather.component';
 import { DailyQuoteComponent } from './components/home/daily-quote/daily-quote.component';
-import { ToDoComponent } from './components/home/to-do/to-do.component';
+import { ToDoListComponent } from './components/home/to-do-list/to-do-list.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -82,7 +83,7 @@ const appRoutes: Routes = [
     LoginComponent,
     WeatherComponent,
     DailyQuoteComponent,
-    ToDoComponent
+    ToDoListComponent
   ],
   exports: [
   ],
@@ -105,6 +106,7 @@ const appRoutes: Routes = [
     ApplicantService,
     AuthService,
     WeatherService,
+    TodoService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

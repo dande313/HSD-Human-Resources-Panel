@@ -1,0 +1,44 @@
+.todo-form {
+    font-size: 16px;
+}
+
+.priority-check {
+    padding-left:15px;
+    margin-top: 40px;
+}
+
+input[type=text], select, textarea{
+    width: 340px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.priority {
+    background-color: #f34e42f1;
+    color: #ffffff;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.btn-complete {
+    background-color: #10854e;
+    color: #ffffff;
+}
+
+.btn-trash {
+    background-color: #752626;
+    color: #ffffff;
+}
+
+th, td {
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+
