@@ -1,3 +1,61 @@
-<p>
-  employee-list works!
-</p>
+<div>
+  <input
+  class="filter-input"
+  type='text'
+  placeholder='Type to filter by...'
+  (keyup)='updateFilter($event)'
+  />
+  <select
+  class='select-filter'
+  (change)='updateFilterType($event)'
+  >
+    <option value="name">Name</option>
+    <option value="email">Email</option>
+    <option value="phone">Phone</option>
+    <option value="location">Location</option>
+  </select>
+  <a type="button" class="btn add-button" [routerLink]="['/employees/new']"><i class="fa fa-plus"></i> New</a>
+  <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [loadingIndicator]="false"
+    [columnMode]="'force'"
+    [headerHeight]="40"
+    [footerHeight]="40"
+    [rowHeight]="'auto'"
+    [reorderable]="true"
+    >
+    <ngx-datatable-column name="Name" prop="lastName">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <span class="responsive-size" [innerHTML]="row['lastName']+ ', ' + row['firstName']"></span>
+          </ng-template>
+    </ngx-datatable-column>
+
+    <!-- email -->
+    <ngx-datatable-column name="Email" prop="email">
+        <ng-template let-row="row" let-value="row" ngx-datatable-cell-template>
+          <a [href]="'mailto:' + value.email" class="responsive-size"><span class="small-screen-hide">{{value.email}}</span><span class="large-screen-hide">Link</span></a>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <!-- phone -->
+    <ngx-datatable-column name="Phone" prop="phone">
+        <ng-template let-row="row" let-value="row" ngx-datatable-cell-template>
+            <a [href]="'tel:1-' + value.phone" class="responsive-size"><span class="small-screen-hide">{{value.phone}}</span><span class="large-screen-hide">Call</span></a>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <!-- City & State -->
+    <ngx-datatable-column name="Location" prop="city">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+          <span [innerHTML]="row['city']+ ', ' + row['state']" class="responsive-size"></span>
+      </ng-template>
+    </ngx-datatable-column>
+
+  <ngx-datatable-column name="Details" prop="key">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+        <a [routerLink]= "['/employees/' + row['key']]" class="" > <i class="material-icons">arrow_forward</i></a>
+    </ng-template>
+  </ngx-datatable-column>  
+</ngx-datatable>
+</div>

@@ -1,3 +1,20 @@
-<p>
-  employee-details works!
-</p>
+<mat-card *ngIf="employee">
+  <div class="back">
+    <a routerLink="/employees" href="#" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back To Employees
+    </a>
+  </div>
+  <h3>{{employee.firstName}} {{employee.lastName}}</h3>
+  <div class="contact-info">
+    <div>{{employee.email}} | {{employee.phone}}<br><br>
+    {{employee.addressLineOne}} </div> 
+    <div ng-if="employee.addressLineTwo">{{employee.addressLineTwo}}</div> 
+    <div>{{employee.city}}, {{employee.state}} {{employee.zipCode}}</div>
+  </div>
+  <hr>
+  <h4>Notes:</h4>
+  <p>{{employee.notes}}</p>
+  <a [routerLink]="['/employees/'+ id + '/vacation']" class="btn btn-success">Vacation</a>
+  <a [routerLink]="['/employees/'+ id + '/edit']" class="btn btn-edit">Edit</a>
+  <a (click)="onDeleteClick(this.id)" class="btn btn-danger"> Delete</a>
+</mat-card>

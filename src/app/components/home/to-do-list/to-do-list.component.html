@@ -29,7 +29,7 @@
           </td>
         </tr>
       </table>
-      <div *ngIf="todos == ''">{{nothingQuote.text}}</div>
-      <div *ngIf="todos == ''">- {{nothingQuote.author}}</div>
+      <div *ngIf="todos == false">{{nothingQuote.text}}</div>
+      <div *ngIf="todos == false">- {{nothingQuote.author}}</div>
     </div>
 </mat-card>

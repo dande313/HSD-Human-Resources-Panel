@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApplicantService } from '../../services/applicant.service';
 import { Applicant } from '../../models/applicant';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {MatTableDataSource, MatSort} from '@angular/material';
 
 
 @Component({

@@ -41,7 +41,7 @@ export class DailyQuoteComponent implements OnInit {
       `If you love something, set it free. If it doesn’t come back, it probably died of sadness because it thought you loved it.`,
       `When one door closes, another door closes. Then the windows all close, and the rest of the doors. The house is alive, and it doesn’t know you, and it is scared.`,
       `Breathe in. Breath out. Breathe in. Breathe out. Don't breathe. Don't breathe. Don't breathe. Don't breathe.`,
-      `Work like it hurts, love like you need money, dance like the government is watching.`,
+      `Work til it hurts, love like you need money, dance like the government is watching.`,
       `*static*`,
       `Do not bite the hand that feeds you. Grab it first. Take the keys. Set yourself free. Then bite the hand, and run.`,
       `It's always darkest before the dawn. We are often reassured by people who are totally wrong about how the sun works.`,

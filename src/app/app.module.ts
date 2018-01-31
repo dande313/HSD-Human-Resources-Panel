@@ -31,9 +31,18 @@ import { ApplicantDetailsComponent } from './components/applicant-details/applic
 import { AddApplicantComponent } from './components/add-applicant/add-applicant.component';
 import { EditApplicantComponent } from './components/edit-applicant/edit-applicant.component';
 
+// Employee Components
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { VacationComponent } from './components/vacation/vacation.component';
+import { AddVacationComponent } from './components/add-vacation/add-vacation.component';
+
 // Services
 import { PositionService } from './services/position.service';
 import { ApplicantService} from './services/applicant.service';
+import { EmployeeService } from './services/employee.service';
 import { WeatherService} from './components/home/services/weather.service';
 import { TodoService } from './components/home/services/todo.service';
 
@@ -50,21 +59,24 @@ import { LoginComponent } from './components/login/login.component';
 import { WeatherComponent } from './components/home/weather/weather.component';
 import { DailyQuoteComponent } from './components/home/daily-quote/daily-quote.component';
 import { ToDoListComponent } from './components/home/to-do-list/to-do-list.component';
-import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
-import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'positions', component: PositionsListComponent, canActivate: [AuthGuard]},
-  {path: 'positions/new', component: AddPositionComponent, canActivate: [AuthGuard]},
-  {path: 'positions/:id', component: PositionsComponent, canActivate: [AuthGuard]},
-  {path: 'positions/:id/edit', component: EditPositionComponent, canActivate: [AuthGuard]},
   {path: 'applicants', component: ApplicantListComponent, canActivate: [AuthGuard]},
   {path: 'applicants/new', component: AddApplicantComponent, canActivate: [AuthGuard]},
   {path: 'applicants/:id', component: ApplicantDetailsComponent, canActivate: [AuthGuard]},
   {path: 'applicants/:id/edit', component: EditApplicantComponent, canActivate: [AuthGuard]},
+  {path: 'employees', component: EmployeeListComponent, canActivate: [AuthGuard]},
+  {path: 'employees/new', component: AddEmployeeComponent, canActivate: [AuthGuard]},
+  {path: 'employees/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'employees/:id/edit', component: EditEmployeeComponent, canActivate: [AuthGuard]},
+  {path: 'employees/:id/vacation', component: VacationComponent, canActivate: [AuthGuard]},
+  {path: 'employees/:id/vacation/new', component: AddVacationComponent, canActivate: [AuthGuard]},
+  {path: 'positions', component: PositionsListComponent, canActivate: [AuthGuard]},
+  {path: 'positions/new', component: AddPositionComponent, canActivate: [AuthGuard]},
+  {path: 'positions/:id', component: PositionsComponent, canActivate: [AuthGuard]},
+  {path: 'positions/:id/edit', component: EditPositionComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -89,7 +101,10 @@ const appRoutes: Routes = [
     ToDoListComponent,
     EmployeeListComponent,
     EmployeeDetailsComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    EditEmployeeComponent,
+    VacationComponent,
+    AddVacationComponent
   ],
   exports: [
   ],
@@ -110,6 +125,7 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     PositionService,
     ApplicantService,
+    EmployeeService,
     AuthService,
     WeatherService,
     TodoService,

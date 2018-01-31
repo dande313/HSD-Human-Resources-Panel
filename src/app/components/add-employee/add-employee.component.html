@@ -1,3 +1,275 @@
-<p>
-  add-employee works!
-</p>
+<mat-card class="form-card">
+
+  <div class="back">
+    <a routerLink="/employees" href="#" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"></i> Back To Employees
+    </a>
+  </div>
+  <div class="form-title">
+      <h2>New Employee</h2>
+  </div>
+  <br>
+  <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+  
+    <div class="first-row" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
+      <!-- First Name field -->
+        <div class="form-group" fxFlex="50%">
+          <label for="firstName">First Name*</label>
+          <input
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': employeeFirstName.errors?.required && employeeFirstName.touched || employeeFirstName.errors?.minlength && employeeFirstName.touched}"
+          [(ngModel)]="employee.firstName"
+          name="firstName"
+          #employeeFirstName = "ngModel"
+          minlength="2"
+          required
+          >
+          <div *ngIf="employeeFirstName.touched && employeeFirstName.hasError('required')" class="invalid-feedback">
+            First Name is required
+          </div>
+          <div *ngIf="employeeFirstName.touched && employeeFirstName.hasError('minlength')" class="invalid-feedback">
+            First Name is too short
+          </div>
+        </div>
+
+      <!-- Last Name field -->
+        <div class="form-group" fxFlex="50%">
+          <label for="lastName">Last Name*</label>
+          <input 
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid': employeeLastName.errors?.required && employeeLastName.touched || employeeLastName.errors?.minlength && employeeLastName.touched}"
+          [(ngModel)]="employee.lastName"
+          name="lastName"
+          #employeeLastName = "ngModel"
+          minlength="2"
+          required
+          >
+          <div *ngIf="employeeLastName.touched && employeeLastName.hasError('required')" class="invalid-feedback">
+            Last Name is required
+          </div>
+          <div *ngIf="employeeLastName.touched && employeeLastName.hasError('minlength')" class="invalid-feedback">
+            Last Name is too short
+          </div>
+        </div>
+      </div>
+
+      <div class="second-row" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
+      <!-- Email field -->
+        <div class="form-group" fxFlex="30%">
+          <label for="email">Email</label>
+          <input 
+          type="email"
+          class="form-control"
+          [ngClass]="{'is-invalid': employeeEmail.errors?.required && employeeEmail.touched || employeeEmail.errors?.pattern && employeeEmail.touched}"
+          [(ngModel)]="employee.email"
+          name="email"
+          #employeeEmail = "ngModel"
+          required
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          >
+          <div *ngIf="employeeEmail.hasError('required') && employeeEmail.touched" class="invalid-feedback">
+            Email is required
+          </div>
+          <div *ngIf="employeeEmail.hasError('pattern') && employeeEmail.touched" class="invalid-feedback">
+            Email is invalid
+          </div>
+        </div>
+  
+      <!-- Phone field -->
+        <div class="form-group" fxFlex="30%">
+            <label for="phone">Phone</label>
+            <input 
+            type="text"
+            class="form-control"
+            [ngClass]="{'is-invalid': employeePhone.errors?.required && employeePhone.touched || employeePhone.errors?.pattern && employeePhone.touched}"
+            [(ngModel)]="employee.phone"
+            name="phone"
+            #employeePhone = "ngModel"
+            required
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            >
+            <div *ngIf="employeePhone.hasError('required') && employeePhone.touched" class="invalid-feedback">
+              Phone is required
+            </div>
+            <div *ngIf="employeePhone.hasError('pattern') && employeePhone.touched" class="invalid-feedback">
+              Phone is not in correct format (xxx-xxx-xxxx)
+            </div>
+          </div>
+        <!-- Start Date -->
+        <div class="form-group" fxFlex="150px">
+          <label for="startDate">Start Date*</label><br>
+          <input 
+          type="date"
+          class="form-control"
+          [(ngModel)]="employee.startDate"
+          [ngClass]="{'is-invalid': employeeStartDate.errors?.required && employeeStartDate.touched}"
+          name="startDate"
+          #employeeStartDate = "ngModel"
+          required
+          >
+          <div *ngIf="employeeStartDate.touched && employeeStartDate.hasError('required')" class="invalid-feedback">
+            Start Date is required
+          </div>
+        </div>
+      </div>
+      <hr>
+    
+    <div class="street-fields-one" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
+    <!-- Address Line One -->
+      <div class="form-group" fxFlex="50%">
+        <label for="addressLineOne">Street Address*</label><br>
+        <input 
+        type="text"
+        class="form-control"
+        [ngClass]="{'is-invalid': employeeAddressLineOne.errors?.required && employeeAddressLineOne.touched}"
+        [(ngModel)]="employee.addressLineOne"
+        name="addressLineOne"
+        #employeeAddressLineOne = "ngModel"
+        required
+        >
+        <div *ngIf="employeeAddressLineOne.touched && employeeAddressLineOne.hasError('required')" class="invalid-feedback">
+          Street Address is required
+        </div>
+      </div>
+
+    <!-- Address Line Two -->
+      <div class="form-group" fxFlex="30%">
+        <label for="addressLineTwo">Apt/POB/etc</label><br>
+        <input 
+        type="text"
+        class="form-control"
+        [(ngModel)]="employee.addressLineTwo"
+        name="addressLineTwo"
+        #employeeAddressLineTwo = "ngModel"
+        >
+      </div>
+    </div>
+
+    <div class="city-state-fields" fxLayout="rows" fxLayout.xs="column" fxLayoutGap="10px">
+    <!-- City -->
+    <div class="form-group">
+      <label for="city">City*</label><br>
+      <input 
+      type="text"
+      class="form-control"
+      [ngClass]="{'is-invalid': employeeCity.errors?.required && employeeCity.touched}"
+      [(ngModel)]="employee.city"
+      name="city"
+      #employeeCity = "ngModel"
+      required
+      >
+      <div *ngIf="employeeCity.touched && employeeCity.hasError('required')" class="invalid-feedback">
+        City is required
+      </div>
+    </div>
+
+    <!-- State -->
+      <div class="form-group">
+        <label for="state">State*</label><br>
+        <select 
+        class="form-control"
+        [ngClass]="{'is-invalid': employeeState.errors?.required && employeeState.touched}"
+        [(ngModel)]="employee.state"
+        name="state"
+        #employeeState = "ngModel"
+        required
+        >
+        <option value="AL">Alabama (AL)</option>
+        <option value="AK">Alaska (AK)</option>
+        <option value="AZ">Arizona (AZ)</option>
+        <option value="AR">Arkansas (AR)</option>
+        <option value="CA">California (CA)</option>
+        <option value="CO">Colorado (CO)</option>
+        <option value="CT">Connecticut (CT)</option>
+        <option value="DE">Delaware (DE)</option>
+        <option value="DC">District Of Columbia (DC)</option>
+        <option value="FL">Florida (FL)</option>
+        <option value="GA">Georgia (GA)</option>
+        <option value="HI">Hawaii (HI)</option>
+        <option value="ID">Idaho (ID)</option>
+        <option value="IL">Illinois (IL)</option>
+        <option value="IN">Indiana (IN)</option>
+        <option value="IA">Iowa (IA)</option>
+        <option value="KS">Kansas (KS)</option>
+        <option value="KY">Kentucky (KY)</option>
+        <option value="LA">Louisiana (LA)</option>
+        <option value="ME">Maine (ME)</option>
+        <option value="MD">Maryland (MD)</option>
+        <option value="MA">Massachusetts (MA)</option>
+        <option value="MI">Michigan (MI)</option>
+        <option value="MN">Minnesota (MN)</option>
+        <option value="MS">Mississippi (MS)</option>
+        <option value="MO">Missouri (MO)</option>
+        <option value="MT">Montana (MT)</option>
+        <option value="NE">Nebraska (NE)</option>
+        <option value="NV">Nevada (NV)</option>
+        <option value="NH">New Hampshire (NH)</option>
+        <option value="NJ">New Jersey (NJ)</option>
+        <option value="NM">New Mexico (NM)</option>
+        <option value="NY">New York (NY)</option>
+        <option value="NC">North Carolina (NC)</option>
+        <option value="ND">North Dakota (ND)</option>
+        <option value="OH">Ohio (OH)</option>
+        <option value="OK">Oklahoma (OK)</option>
+        <option value="OR">Oregon (OR)</option>
+        <option value="PA">Pennsylvania (PA)</option>
+        <option value="RI">Rhode Island (RI)</option>
+        <option value="SC">South Carolina (SC)</option>
+        <option value="SD">South Dakota (SD)</option>
+        <option value="TN">Tennessee (TN)</option>
+        <option value="TX">Texas (TX)</option>
+        <option value="UT">Utah (UT)</option>
+        <option value="VT">Vermont (VT)</option>
+        <option value="VA">Virginia (VA)</option>
+        <option value="WA">Washington (WA)</option>
+        <option value="WV">West Virginia (WV)</option>
+        <option value="WI">Wisconsin (WI)</option>
+        <option value="WY">Wyoming (WY)</option>
+        </select>
+        <div *ngIf="employeeState.touched && employeeState.hasError('required')" class="invalid-feedback">
+          Must select a State
+        </div>
+      </div>
+
+    <!-- Zip Code -->
+    <div class="form-group">
+      <label for="zipCode">Zip Code</label><br>
+      <input 
+      type="text"
+      class="form-control"
+      [ngClass]="{'is-invalid': employeeZipCode.errors?.required && employeeZipCode.touched}"
+      [(ngModel)]="employee.zipCode"
+      name="zipCode"
+      #employeeZipCode = "ngModel"
+      pattern="^\d{5}(?:[-]\d{4})?$"
+      >
+      <div *ngIf="employeeZipCode.touched && employeeZipCode.hasError('pattern')" class="invalid-feedback">
+        Zip code must be in correct format (xxxxx or xxxxx-xxxx)
+      </div>
+    </div>
+
+  </div>
+    <hr>
+
+    <div class="name-fields">
+
+    <!-- Notes -->
+      <div class="form-group">
+        <label for="notes">Notes</label><br>
+        <textarea
+        type="text"
+        class="form-control"
+        [(ngModel)]="employee.notes"
+        name="notes"
+        style="resize: vertical;"
+        >
+        </textarea>
+      </div>
+
+
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</mat-card>

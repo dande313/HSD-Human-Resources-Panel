@@ -3,15 +3,13 @@ import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.css']
+  selector: 'app-edit-employee',
+  templateUrl: './edit-employee.component.html',
+  styleUrls: ['./edit-employee.component.css']
 })
-export class AddEmployeeComponent implements OnInit {
-
-
+export class EditEmployeeComponent implements OnInit {
+  id: string;
   employee: Employee = {
     firstName: '',
     lastName: '',
@@ -28,22 +26,30 @@ export class AddEmployeeComponent implements OnInit {
     vacationAllotment: null,
     vacations: []
   };
+
   constructor(
+    private employeeService: EmployeeService,
     private router: Router,
-    private employeeService: EmployeeService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+
+    // get employee
+    this.employeeService.getEmployee(this.id).subscribe(employee => {
+      this.employee = employee;
+    });
   }
 
   onSubmit({value, valid}: {value: Employee, valid: boolean}) {
-
     if (!valid) {
-      this.router.navigate(['/employees/new']);
+      this.router.navigate(['/employees/' + this.id + '/edit']);
     } else {
-      // Add new client
-      this.employeeService.newEmployee(value);
-      this.router.navigate(['/employees']);
+      // Add new position
+      this.employeeService.updateEmployee(this.id, value);
+      this.router.navigate(['/employees/' + this.id]);
     }
   }
+
 }

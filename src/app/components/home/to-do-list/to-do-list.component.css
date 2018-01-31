@@ -1,5 +1,6 @@
 .todo-card {
     background-color:#f8f8f8;
+    max-width: 530px;
 }
 
 .todo-form {

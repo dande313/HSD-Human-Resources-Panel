@@ -15,6 +15,6 @@
   <h5>Experience: {{applicant.monthsExp / 12 | number:'1.0-0'}} years, {{applicant.monthsExp % 12}} months</h5><br>
   <h4>Notes:</h4>
   <p>{{applicant.notes}}</p>
-  <a (click)="onDeleteClick(this.id)" class="btn btn-danger"> Delete</a>
   <a [routerLink]="['/applicants/'+ id + '/edit']" class="btn btn-edit">Edit</a>
+  <a (click)="onDeleteClick(this.id)" class="btn btn-danger"> Delete</a>
 </mat-card>

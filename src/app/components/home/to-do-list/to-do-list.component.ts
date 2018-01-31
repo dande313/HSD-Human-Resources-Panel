@@ -31,7 +31,7 @@ export class ToDoListComponent implements OnInit {
     {text: `"This is the real secret of life -- to be completely engaged with what you are doing in the here and now. And instead of calling it work, realize it is play."`, author: 'Alan Watts'},
     {text: `"Muddy water is best cleared just by leaving it alone."`, author: 'Alan Watts'},
   ];
-  nothingQuote: object;
+  nothingQuote: any;
 
   constructor(
     public todoService: TodoService,
@@ -44,7 +44,6 @@ export class ToDoListComponent implements OnInit {
     });
     this.todoService.getTodos().subscribe(todos => {
       this.todos = todos.filter(todo => todo.userEmail === this.loggedInUser);
-      console.log(todos);
     });
     this.nothingQuote = this.nothingQuotes[Math.floor(Math.random() * this.nothingQuotes.length)];
   }
