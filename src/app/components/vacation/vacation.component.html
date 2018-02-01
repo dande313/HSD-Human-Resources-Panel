@@ -8,7 +8,7 @@
   <div>Annual Vacation: {{employee.vacationAllotment}} days</div>
   <div [ngClass] = "{'too-much-vaca': remainingDays < 0}">Remaining: {{remainingDays}} days</div>
   <hr>
-  <table style="width:100%;">
+  <table style="width:100%;" class="vacation-list">
     <tr>
       <th>Start Date</th>
       <th>End Date</th>
@@ -17,11 +17,11 @@
     </tr>
   </table>
   <div [ngClass] = "{'todo-list-present': vacations != ''}" class="vacation-list">
-      <table style="width:100%;">
+      <table style="width:100%;" >
         <tr *ngFor="let vacation of vacations">
-          <td class="description" style="padding-right:10px;">{{vacation.startDate}}</td>
-          <td class="description" style="padding-right:10px;">{{vacation.endDate}}</td>
-          <td class="description" style="padding-right:10px;">{{vacation.length}}</td>
+          <td>{{vacation.startDate}}</td>
+          <td>{{vacation.endDate}}</td>
+          <td>{{vacation.length}}</td>
           <td>
             <a class="btn btn-trash" href="#" (click)="deleteVacation($event, vacation.startDate, vacation.endDate)">
                 <i class="fa fa-trash"></i>
@@ -35,7 +35,7 @@
     <hr>
     <form class="vacation-form" (submit)="addVacation()">
       <table style="width:100%;">
-        <tr>
+        <tr style=" border-bottom: 5px solid #ffffff;">
             <td><input type="date" [(ngModel)]="startDate" name="startDate" (change)="startDateChange($event)"></td>
             <td><input type="date" [(ngModel)]="endDate" name="endDate" [disabled]="startDate == undefined" [min]="startDate" [max]="yearFromStart" (change)="endDateChange($event)"></td>
             <td><input type="text" [(ngModel)]="daysTaken" name="daysTaken" disabled value="daysTaken"></td>

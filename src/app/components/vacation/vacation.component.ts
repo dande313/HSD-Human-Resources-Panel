@@ -35,9 +35,11 @@ export class VacationComponent implements OnInit {
       this.employee = employee;
       this.vacations = employee.vacations;
       let daysTaken = 0;
-      employee.vacations.forEach(function(vacation) {
-        daysTaken += vacation.length;
-      });
+      if (employee.vacations !== undefined) {
+        employee.vacations.forEach(function(vacation) {
+          daysTaken += vacation.length;
+        });
+      }
       this.remainingDays = employee.vacationAllotment - daysTaken;
     });
   }
@@ -49,14 +51,18 @@ export class VacationComponent implements OnInit {
     const employee = this.employee;
     const vacation = {'endDate': endDate, 'length': daysTaken, 'startDate': startDate};
     let duplicateCheck = false;
-    let vacations = this.employee.vacations.slice();
-    for (let i = 0; i < vacations.length; i++) {
-      if (vacations[i].startDate === vacation.startDate && vacations[i].endDate === vacation.endDate) {
-        console.log(vacations[i] + ' equals ' + vacation);
-        console.log(`It's a duplicate!`);
-        duplicateCheck = true;
-        break;
+    let vacations = null;
+    if (this.employee.vacations !== undefined) {
+      vacations = this.employee.vacations.slice();
+      for (let i = 0; i < vacations.length; i++) {
+        if (vacations[i].startDate === vacation.startDate && vacations[i].endDate === vacation.endDate) {
+
+          duplicateCheck = true;
+          break;
+        }
       }
+    } else {
+      vacations = [];
     }
     if (!duplicateCheck) {
       vacations = vacations.concat(vacation);

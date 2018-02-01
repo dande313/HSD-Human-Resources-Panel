@@ -15,11 +15,14 @@
     background-color: #a84444;
 }
 
+.vacation-list th, td {
+    border-bottom: 1px solid #b3b3b3;
+}
+
 th, td {
     padding: 10px;
     width: 25%;
-    border-bottom: 1px solid #b3b3b3;
-    text-align: center;
+    text-align: center;  
 }
 
 /* For Firefox */

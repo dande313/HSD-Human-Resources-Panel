@@ -6,11 +6,12 @@
   </div>
   <h3>{{employee.firstName}} {{employee.lastName}}</h3>
   <div class="contact-info">
-    <div>{{employee.email}} | {{employee.phone}}<br><br>
+    <div>{{employee.title}} | {{employee.email}} | {{employee.phone}}<br><br>
     {{employee.addressLineOne}} </div> 
     <div ng-if="employee.addressLineTwo">{{employee.addressLineTwo}}</div> 
     <div>{{employee.city}}, {{employee.state}} {{employee.zipCode}}</div>
-  </div>
+  </div><br>
+  <span>{{employee.vacationAllotment}} days vacation</span>
   <hr>
   <h4>Notes:</h4>
   <p>{{employee.notes}}</p>
