@@ -18,7 +18,7 @@ export interface Employee {
 }
 
 export class Vacation {
-    start: string;
-    finish: string;
+    startDate: any;
+    endDate: any;
     length: number;
 }

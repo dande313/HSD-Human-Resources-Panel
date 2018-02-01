@@ -6,7 +6,7 @@
   </div>
   <h3>{{employee.firstName}} {{employee.lastName}}</h3>
   <div>Annual Vacation: {{employee.vacationAllotment}} days</div>
-  <div>Remaining: {{remainingDays}} days</div>
+  <div [ngClass] = "{'too-much-vaca': remainingDays < 0}">Remaining: {{remainingDays}} days</div>
   <hr>
   <table style="width:100%;">
     <tr>
@@ -22,11 +22,8 @@
           <td class="description" style="padding-right:10px;">{{vacation.startDate}}</td>
           <td class="description" style="padding-right:10px;">{{vacation.endDate}}</td>
           <td class="description" style="padding-right:10px;">{{vacation.length}}</td>
-          <td class="btn-group pull-right">
-            <a class="btn btn-complete" href="#" (click)="editVacation()">
-              <i class="fa fa-pencil-square-o"></i>
-            </a>
-            <a class="btn btn-trash" href="#" (click)="deleteVacation()">
+          <td>
+            <a class="btn btn-trash" href="#" (click)="deleteVacation($event, vacation.startDate, vacation.endDate)">
                 <i class="fa fa-trash"></i>
             </a>
           </td>
@@ -34,16 +31,16 @@
       </table>
       <div *ngIf="vacations == false">{{vacationQuote}}</div>
       <div *ngIf="vacations == false">- {{vacationQuote}}</div>
-      <hr>
-      <form class="vacation-form" (submit)="addVacation()">
-        <table style="width:100%;">
-          <tr>
-              <td><input type="date" [(ngModel)]="startDate" name="startDate" (change)="startDateChange($event)"></td>
-              <td><input type="date" [(ngModel)]="endDate" name="endDate" [disabled]="startDate == undefined" [min]="startDate" [max]="yearFromStart" (change)="endDateChange($event)"></td>
-              <td><input type="text" [(ngModel)]="daysTaken" name="daysTaken" disabled value="daysTaken"></td>
-              <td><input type="submit" class="btn btn-primary" value="Add"></td>
-          </tr>
-        </table>
-      </form>
     </div>
+    <hr>
+    <form class="vacation-form" (submit)="addVacation()">
+      <table style="width:100%;">
+        <tr>
+            <td><input type="date" [(ngModel)]="startDate" name="startDate" (change)="startDateChange($event)"></td>
+            <td><input type="date" [(ngModel)]="endDate" name="endDate" [disabled]="startDate == undefined" [min]="startDate" [max]="yearFromStart" (change)="endDateChange($event)"></td>
+            <td><input type="text" [(ngModel)]="daysTaken" name="daysTaken" disabled value="daysTaken"></td>
+            <td><input type="submit" class="btn btn-primary" value="Add"></td>
+        </tr>
+      </table>
+    </form>
 </mat-card>

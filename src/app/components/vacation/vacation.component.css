@@ -2,6 +2,26 @@
     width: 700px;
 }
 
+.too-much-vaca {
+    color: red;
+}
+
+.vacation-list {
+    width: 100%;
+}
+
+.btn-trash {
+    color: white;
+    background-color: #a84444;
+}
+
+th, td {
+    padding: 10px;
+    width: 25%;
+    border-bottom: 1px solid #b3b3b3;
+    text-align: center;
+}
+
 /* For Firefox */
 input[type='date'] {
     -moz-appearance:textfield;

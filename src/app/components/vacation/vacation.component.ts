@@ -43,15 +43,44 @@ export class VacationComponent implements OnInit {
   }
 
   addVacation() {
-    console.log('adding much needed vacation');
+    const startDate = (this.startDate.substr(5, 9) + '-' + this.startDate.substr(0, 4));
+    const endDate = (this.endDate.substr(5, 9) + '-' + this.endDate.substr(0, 4));
+    const daysTaken = this.daysTaken;
+    const employee = this.employee;
+    const vacation = {'endDate': endDate, 'length': daysTaken, 'startDate': startDate};
+    let duplicateCheck = false;
+    let vacations = this.employee.vacations.slice();
+    for (let i = 0; i < vacations.length; i++) {
+      if (vacations[i].startDate === vacation.startDate && vacations[i].endDate === vacation.endDate) {
+        console.log(vacations[i] + ' equals ' + vacation);
+        console.log(`It's a duplicate!`);
+        duplicateCheck = true;
+        break;
+      }
+    }
+    if (!duplicateCheck) {
+      vacations = vacations.concat(vacation);
+      employee.vacations = vacations;
+      console.log(vacations);
+      this.employeeService.updateEmployee(this.id, employee);
+    }
+    this.startDate = '';
+    this.endDate = '';
+    this.daysTaken = '';
   }
 
-  editVacation() {
+  editVacation(event) {
+    event.preventDefault();
     console.log('Editing!');
   }
 
-  deleteVacation() {
-    console.log('Deleting!');
+  deleteVacation(event, startDate, endDate) {
+    event.preventDefault();
+    const employee = this.employee;
+    let vacations = this.employee.vacations.slice();
+    vacations = vacations.filter( vacation => vacation.startDate !== startDate && vacation.endDate !== endDate);
+    employee.vacations = vacations;
+    this.employeeService.updateEmployee(this.id, employee);
   }
 
   // Prevent having more than a year vacation straight
