@@ -1,0 +1,14 @@
+.board td{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.board tr:nth-child(odd) > td:nth-child(even){
+    background-color: #b89f79;
+}
+
+.board tr:nth-child(even) > td:nth-child(odd){
+    background-color: #b89f79;
+}
