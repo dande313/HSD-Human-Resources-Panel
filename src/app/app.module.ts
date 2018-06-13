@@ -105,8 +105,7 @@ const appRoutes: Routes = [
     AddEmployeeComponent,
     EditEmployeeComponent,
     VacationComponent,
-    AddVacationComponent,
-    ChessComponent
+    AddVacationComponent
   ],
   exports: [
   ],
