@@ -6,7 +6,6 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { HttpModule } from '@angular/http';
 
@@ -115,7 +114,6 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     MaterialModule,
     FormsModule,
-    FlexLayoutModule,
     NgxDatatableModule,
     HttpModule
   ],
