@@ -78,7 +78,6 @@ const appRoutes: Routes = [
   {path: 'positions/new', component: AddPositionComponent, canActivate: [AuthGuard]},
   {path: 'positions/:id', component: PositionsComponent, canActivate: [AuthGuard]},
   {path: 'positions/:id/edit', component: EditPositionComponent, canActivate: [AuthGuard]},
-  {path: 'chess', component: ChessComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
