@@ -11,3 +11,8 @@
         font-size: 14px;
     }
 }
+
+.mid-panel {
+    display: inline-flex;
+    padding: 5px;
+}
