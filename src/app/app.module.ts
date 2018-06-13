@@ -34,8 +34,6 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
-import { VacationComponent } from './components/vacation/vacation.component';
-import { AddVacationComponent } from './components/add-vacation/add-vacation.component';
 
 // Services
 import { PositionService } from './services/position.service';
@@ -70,8 +68,6 @@ const appRoutes: Routes = [
   {path: 'employees/new', component: AddEmployeeComponent, canActivate: [AuthGuard]},
   {path: 'employees/:id', component: EmployeeDetailsComponent, canActivate: [AuthGuard]},
   {path: 'employees/:id/edit', component: EditEmployeeComponent, canActivate: [AuthGuard]},
-  {path: 'employees/:id/vacation', component: VacationComponent, canActivate: [AuthGuard]},
-  {path: 'employees/:id/vacation/new', component: AddVacationComponent, canActivate: [AuthGuard]},
   {path: 'positions', component: PositionsListComponent, canActivate: [AuthGuard]},
   {path: 'positions/new', component: AddPositionComponent, canActivate: [AuthGuard]},
   {path: 'positions/:id', component: PositionsComponent, canActivate: [AuthGuard]},
@@ -102,8 +98,6 @@ const appRoutes: Routes = [
     EmployeeDetailsComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
-    VacationComponent,
-    AddVacationComponent
   ],
   exports: [
   ],

@@ -23,8 +23,6 @@ export class EditEmployeeComponent implements OnInit {
     zipCode: null,
     notes: '',
     startDate: '',
-    vacationAllotment: null,
-    vacations: []
   };
 
   constructor(

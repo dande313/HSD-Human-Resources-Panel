@@ -13,12 +13,6 @@ export interface Employee {
     gender?: string;
     startDate?: string;
     notes: string;
-    vacationAllotment: number;
-    vacations: Vacation[];
+
 }
 
-export class Vacation {
-    startDate: any;
-    endDate: any;
-    length: number;
-}

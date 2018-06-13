@@ -113,19 +113,6 @@
             Start Date is required
           </div>
         </div>
-
-        <!-- Start Date -->
-        <div class="form-group" fxFlex="150px">
-          <label for="startDate">Vacation Allotment</label><br>
-          <input 
-          type="number"
-          class="form-control"
-          [(ngModel)]="employee.vacationAllotment"
-          [ngClass]="{'is-invalid': employeeVacationAllotment.errors?.required && employeeVacationAllotment.touched}"
-          name="vacationAllotment"
-          #employeeVacationAllotment = "ngModel"
-          >
-        </div>
       </div>
       <hr>
     

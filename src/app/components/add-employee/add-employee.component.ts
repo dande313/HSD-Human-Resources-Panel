@@ -25,8 +25,6 @@ export class AddEmployeeComponent implements OnInit {
     zipCode: null,
     notes: '',
     startDate: '',
-    vacationAllotment: null,
-    vacations: []
   };
   constructor(
     private router: Router,
