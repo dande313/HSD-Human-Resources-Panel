@@ -60,9 +60,6 @@ import { WeatherComponent } from './components/home/weather/weather.component';
 import { DailyQuoteComponent } from './components/home/daily-quote/daily-quote.component';
 import { ToDoListComponent } from './components/home/to-do-list/to-do-list.component';
 
-// Fun Test Components
-import { ChessComponent } from './components/chess/chess.component';
-import 'chess.js' ;
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
