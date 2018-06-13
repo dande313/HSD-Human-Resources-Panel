@@ -30,6 +30,7 @@
     "chess.js": "^0.10.2",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
+    "express": "^4.16.3",
     "firebase": "^4.8.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
